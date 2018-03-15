@@ -1,35 +1,35 @@
 module AlfaInsurance
   class BusSegment
-    attr_accessor :route_number,
-                  :place_number,
-                  :departure_station,
-                  :departure_at,
-                  :arrival_station,
-                  :arrival_at,
-                  :number
+    attr_reader :route_number,
+                :place_number,
+                :departure_station,
+                :departure_at,
+                :arrival_station,
+                :arrival_at,
+                :number
 
     def initialize(params = {})
       params.each do |attr, value|
-        public_send("#{attr}=", value)
+        instance_variable_set("@#{attr}", value)
       end
     end
   end
 
   class BusInsuranceRequest
-    attr_accessor :insured_first_name,
-      :insured_last_name,
-      :insured_patronymic,
-      :insured_birth_date,
-      :insured_document_type,
-      :insured_document_number,
-      :bus_segments,
-      :total_value,
-      :customer_email,
-      :customer_phone
+    attr_reader :insured_first_name,
+                :insured_last_name,
+                :insured_patronymic,
+                :insured_birth_date,
+                :insured_document_type,
+                :insured_document_number,
+                :bus_segments,
+                :total_value,
+                :customer_email,
+                :customer_phone
 
     def initialize(params = {})
       params.each do |attr, value|
-        public_send("#{attr}=", value)
+        instance_variable_set("@#{attr}", value)
       end
     end
 
