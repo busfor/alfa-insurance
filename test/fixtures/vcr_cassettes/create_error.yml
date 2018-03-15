@@ -1,0 +1,2460 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService?wsdl
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Date:
+      - Wed, 14 Mar 2018 11:20:19 GMT
+      Content-Type:
+      - text/xml
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Set-Cookie, Cookie, Content-Type, ticket, content-type, Range, X-Requested-With,
+        Accept, Content-Range
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, OPTIONS
+      Expires:
+      - Tue, 03 Jul 2001 06:00:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="TravelExtServiceImplService" targetNamespace="http://vtsft.ru/travelExtService/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://vtsft.ru/travelExtService/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <wsdl:types>
+        <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://vtsft.ru/travelExtService/" xmlns:tns="http://vtsft.ru/travelExtService/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+        <xs:element name="agent" type="tns:operator"/>
+        <xs:element name="availableProductsRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="availableProductsResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="productList" type="tns:productList"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="batchCalculatePolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:basePolicyRequest">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="batchCalculatePolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="batchCalculationResult" nillable="true" type="tns:batchCalculationResult"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="calculatePolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:basePolicyRequest">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="calculatePolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:basePolicyResult">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="calculationParametersRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="product" type="tns:product"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="calculationParametersResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="parameters" type="tns:productParametersList"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="calculationResult" type="tns:calculationResult"/>
+        <xs:element name="cancelPolicyOrderRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyOrderId" type="xs:nonNegativeInteger"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="cancelPolicyOrderResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="currency" type="tns:tesCurrencyTypeEnum"/>
+        <xs:element name="refundRate" type="xs:decimal"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="cancelPolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        <xs:element minOccurs="0" name="localDateTime" type="xs:dateTime"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="cancelPolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="changeOperatorPassowrdRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="oldPassword" type="xs:string"/>
+        <xs:element name="newPassword" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="changeOperatorPassowrdResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="confirmPolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="localDateTime" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="confirmPolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="series" type="xs:string"/>
+        <xs:element name="fullNumber" type="xs:string"/>
+        <xs:element minOccurs="0" name="policyDocument" type="tns:policyDocument"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="createPolicyOrderRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="createPolicyOrderResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="policyOrderId" type="xs:nonNegativeInteger"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="createPolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:basePolicyRequest">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="createPolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:basePolicyResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getAgentsResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="listCodeAgent" nillable="true" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getOperatorResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="userInfo" type="tns:userInfo"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getPolicyListRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="productType" type="xs:string"/>
+        <xs:element name="start" type="xs:nonNegativeInteger"/>
+        <xs:element name="count" type="xs:nonNegativeInteger"/>
+        <xs:element name="orderBy" type="xs:string"/>
+        <xs:element name="query" type="tns:tesFilterQuery"/>
+        <xs:element name="desc" type="xs:boolean"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getPolicyListResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="policyList" type="tns:policyList"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getPolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element default="0" name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="fullNumber" type="xs:string"/>
+        <xs:element minOccurs="0" name="PNR" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getPolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="policyInformation" type="tns:policyFullInformation"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getReportByAgentResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="report" nillable="true" type="tns:reportByAgent"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getReportByDayResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="report" nillable="true" type="tns:reportByDay"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="getReportByMonthResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="report" nillable="true" type="tns:reportByMonth"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="operator" type="tns:operator"/>
+        <xs:element name="payPolicyOrderRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyOrderId" type="xs:nonNegativeInteger"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="payPolicyOrderResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="paymentUrl" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="policyListMetaInformation">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="policyStatus" nillable="true" type="tns:metaEnumInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="operator" nillable="true" type="tns:metaEnumInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="product" nillable="true" type="tns:metaEnumInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="currency" nillable="true" type="tns:metaEnumInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="agent" nillable="true" type="tns:metaEnumInfo"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="policyListSummaryRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="query" type="tns:tesFilterQuery"/>
+        <xs:element name="productType" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="policyListSummaryResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="policySummary" type="tns:policySummary"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="policyParametersRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="product" type="tns:product"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="policyParametersResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="parameters" type="tns:productParametersList"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="product" type="tns:product"/>
+        <xs:element name="refundPolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element name="declarationNumber" type="xs:string"/>
+        <xs:element name="declarationDate" type="xs:date"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        <xs:element minOccurs="0" name="localDateTime" type="xs:dateTime"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="refundPolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="currency" type="tns:tesCurrencyTypeEnum"/>
+        <xs:element name="refundRate" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="returnPolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyId" type="xs:nonNegativeInteger"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="returnPolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="saveOperatorRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="userInfo" type="tns:userInfo"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="saveOperatorResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="signinRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="username" type="xs:string"/>
+        <xs:element name="password" type="xs:string"/>
+        <xs:element name="key" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="signinResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="userInfo" type="tns:userInfo"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="signoutRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="ticket" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="signoutResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="tripCancellationRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        <xs:element minOccurs="0" name="localDateTime" type="xs:dateTime"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="tripCancellationResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="currency" type="tns:tesCurrencyTypeEnum"/>
+        <xs:element name="refundRate" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="updatePolicyRequest">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element name="policyParameters" type="tns:policyInformation"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:element name="updatePolicyResult">
+        <xs:complexType>
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element name="policyDocument" type="tns:policyDocument"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        </xs:element>
+        <xs:complexType name="baseRequest">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="agent" type="tns:agent"/>
+        <xs:element minOccurs="0" name="operator" type="tns:operator"/>
+        <xs:element minOccurs="0" name="token" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="agent">
+        <xs:sequence>
+        <xs:element name="code" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="operator">
+        <xs:sequence>
+        <xs:element name="code" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="basePolicyRequest">
+        <xs:complexContent>
+        <xs:extension base="tns:baseRequest">
+        <xs:sequence>
+        <xs:element name="product" type="tns:product"/>
+        <xs:element name="policyParameters" type="tns:policyInformation"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="product">
+        <xs:sequence>
+        <xs:element name="code" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="policyInformation">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="PNR" type="xs:string"/>
+        <xs:element minOccurs="0" name="insuredCount" type="xs:short"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredFirstName" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredLastName" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredPatronymic" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredBirthDate" nillable="true" type="tns:plainDateSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredDocumentType" nillable="true" type="tns:tesDocumentTypeEnumSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredDocumentNumber" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredTicketNumber" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredEmail" nillable="true" type="tns:emailSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredPhone" nillable="true" type="tns:phoneNumberSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredPhoneType" nillable="true" type="tns:tesPhoneTypeEnumSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredSex" nillable="true" type="tns:tesSexTypeEnumSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredAddress" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredIdCard" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskValue" nillable="true" type="tns:riskValueSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskRate" nillable="true" type="tns:riskRateSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskRub" nillable="true" type="tns:riskRateSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskCurrency" nillable="true" type="tns:riskCurrencySeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskFranshise" nillable="true" type="tns:riskFranshiseSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskInsuranceType" nillable="true" type="tns:riskInsuranceTypeSeqNo"/>
+        <xs:element minOccurs="0" name="insurerFirstName" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerLastName" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerPatronymic" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerBirthDate" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerDocumentType" type="tns:tesDocumentTypeEnum"/>
+        <xs:element minOccurs="0" name="insurerDocumentNumber" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerEmail" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerPhone" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerPhoneType" type="tns:tesPhoneTypeEnum"/>
+        <xs:element minOccurs="0" name="insurerSex" type="tns:tesSexTypeEnum"/>
+        <xs:element minOccurs="0" name="insurerAddress" type="xs:string"/>
+        <xs:element minOccurs="0" name="insurerIdCard" type="xs:string"/>
+        <xs:element minOccurs="0" name="flightSegmentsCount" type="xs:short"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentTransportOperatorCode" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentFlightNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentDepartureDate" nillable="true" type="tns:datePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentDepartureTime" nillable="true" type="tns:timePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentDepartureAirport" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentDepartureCountry" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentArrivalDate" nillable="true" type="tns:datePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentArrivalTime" nillable="true" type="tns:timePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentArrivalAirport" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentArrivalCountry" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentCurrency" nillable="true" type="tns:currencyTypePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentPremium" nillable="true" type="tns:decimalPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentServiceClass" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element minOccurs="0" name="paymentType" type="xs:string"/>
+        <xs:element minOccurs="0" name="saleSession" type="xs:string"/>
+        <xs:element minOccurs="0" name="deskCity" type="xs:string"/>
+        <xs:element minOccurs="0" name="customerPhone" type="xs:string"/>
+        <xs:element minOccurs="0" name="customerPhoneType" type="tns:tesPhoneTypeEnum"/>
+        <xs:element minOccurs="0" name="customerEmail" type="xs:string"/>
+        <xs:element minOccurs="0" name="currency" type="tns:tesCurrencyTypeEnum"/>
+        <xs:element minOccurs="0" name="comment" type="xs:string"/>
+        <xs:element minOccurs="0" name="pdfUrl" type="xs:string"/>
+        <xs:element minOccurs="0" name="extId" type="xs:string"/>
+        <xs:element minOccurs="0" name="policyStatus" type="tns:tesPolicyStatusEnum"/>
+        <xs:element minOccurs="0" name="subagentCode" type="xs:string"/>
+        <xs:element minOccurs="0" name="beginDate" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="endDate" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="periodOfValidity" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="travelType" type="tns:tesTravelTypeEnum"/>
+        <xs:element minOccurs="0" name="officeTravelType" type="xs:string"/>
+        <xs:element minOccurs="0" name="visa" type="tns:tesVisaRequirementEnum"/>
+        <xs:element minOccurs="0" name="territory" type="tns:tesTerritoryReferenceEnum"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="country" nillable="true" type="tns:tesCountryReferenceEnum"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="fullListCountry" nillable="true" type="tns:tesCountryReferenceEnum"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="sport" nillable="true" type="tns:tesSportTypeEnum"/>
+        <xs:element minOccurs="0" name="competition" type="tns:tesCompetitionEnum"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskValue" nillable="true" type="tns:riskValue"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskRate" nillable="true" type="tns:riskRate"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskRateRub" nillable="true" type="tns:riskRate"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskCurrency" nillable="true" type="tns:riskCurrency"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskFranshise" nillable="true" type="tns:riskFranshise"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskInsuranceType" nillable="true" type="tns:riskInsuranceType"/>
+        <xs:element minOccurs="0" name="exchangeRate" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="agent" type="xs:string"/>
+        <xs:element minOccurs="0" name="rateRub" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="printTerritory" type="xs:string"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredNationality" nillable="true" type="tns:nonEmptyStringSeqNo"/>
+        <xs:element minOccurs="0" name="railwaySegmentsCount" type="xs:short"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentTrainNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentRailcarNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentRailcarType" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentServiceClass" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentPlaceNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentDepartureStation" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentDepartureDate" nillable="true" type="tns:datePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentDepartureTime" nillable="true" type="tns:timePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentArrivalStation" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentArrivalDate" nillable="true" type="tns:datePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="railwaySegmentArrivalTime" nillable="true" type="tns:timePolicyInfo"/>
+        <xs:element minOccurs="0" name="localDateTime" type="xs:dateTime"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskList" nillable="true" type="tns:tesRiskTypeEnum"/>
+        <xs:element minOccurs="0" name="insuredProperty" type="tns:insuredProperty"/>
+        <xs:element minOccurs="0" name="riskValueSum" type="xs:decimal"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredType" nillable="true" type="tns:tesInsuredTypeEnumSeqNo"/>
+        <xs:element minOccurs="0" name="ticketInformation" type="tns:ticketInformation"/>
+        <xs:element minOccurs="0" name="eventInformation" type="tns:eventInformation"/>
+        <xs:element minOccurs="0" name="policyOrderId" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="policyPaymentId" type="xs:string"/>
+        <xs:element minOccurs="0" name="corrected" type="xs:boolean"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentConnectionTime" nillable="true" type="tns:integerPolicyInfo"/>
+        <xs:element minOccurs="0" name="busSegmentsCount" type="xs:short"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentRouteNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentPlaceNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentNumber" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentDepartureStation" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentDepartureDate" nillable="true" type="tns:datePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentDepartureTime" nillable="true" type="tns:timePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentArrivalStation" nillable="true" type="tns:stringPolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentArrivalDate" nillable="true" type="tns:datePolicyInfo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentArrivalTime" nillable="true" type="tns:timePolicyInfo"/>
+        <xs:element minOccurs="0" name="seatsCount" type="xs:short"/>
+        <xs:element minOccurs="0" name="loanSum" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="monthlyPayment" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="loanTerm" type="xs:int"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="nonEmptyStringSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="xs:string">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="plainDateSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="xs:string">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="tesDocumentTypeEnumSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="tns:tesDocumentTypeEnum">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="emailSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="xs:string">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="phoneNumberSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="xs:string">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="tesPhoneTypeEnumSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="tns:tesPhoneTypeEnum">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="tesSexTypeEnumSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="tns:tesSexTypeEnum">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="riskValueSeqNo">
+        <xs:complexContent>
+        <xs:extension base="tns:riskValue">
+        <xs:sequence/>
+        <xs:attribute name="seqNo" type="xs:short" use="required"/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="riskValue">
+        <xs:sequence/>
+        <xs:attribute name="value" type="xs:decimal" use="required"/>
+        <xs:attribute name="riskType" type="tns:tesRiskTypeEnum" use="required"/>
+        </xs:complexType>
+        <xs:complexType name="riskRateSeqNo">
+        <xs:complexContent>
+        <xs:extension base="tns:riskRate">
+        <xs:sequence/>
+        <xs:attribute name="seqNo" type="xs:short" use="required"/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="riskRate">
+        <xs:sequence/>
+        <xs:attribute name="value" type="xs:decimal" use="required"/>
+        <xs:attribute name="riskType" type="tns:tesRiskTypeEnum" use="required"/>
+        </xs:complexType>
+        <xs:complexType name="riskCurrencySeqNo">
+        <xs:complexContent>
+        <xs:extension base="tns:riskCurrency">
+        <xs:sequence/>
+        <xs:attribute name="seqNo" type="xs:short" use="required"/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="riskCurrency">
+        <xs:sequence/>
+        <xs:attribute name="value" type="tns:tesCurrencyTypeEnum" use="required"/>
+        <xs:attribute name="riskType" type="tns:tesRiskTypeEnum" use="required"/>
+        </xs:complexType>
+        <xs:complexType name="riskFranshiseSeqNo">
+        <xs:complexContent>
+        <xs:extension base="tns:riskFranshise">
+        <xs:sequence/>
+        <xs:attribute name="seqNo" type="xs:short" use="required"/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="riskFranshise">
+        <xs:sequence/>
+        <xs:attribute name="value" type="xs:string" use="required"/>
+        <xs:attribute name="riskType" type="tns:tesRiskTypeEnum" use="required"/>
+        </xs:complexType>
+        <xs:complexType name="riskInsuranceTypeSeqNo">
+        <xs:complexContent>
+        <xs:extension base="tns:riskInsuranceType">
+        <xs:sequence/>
+        <xs:attribute name="seqNo" type="xs:short" use="required"/>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="riskInsuranceType">
+        <xs:sequence/>
+        <xs:attribute name="value" type="xs:string" use="required"/>
+        <xs:attribute name="riskType" type="tns:tesRiskTypeEnum" use="required"/>
+        </xs:complexType>
+        <xs:complexType name="stringPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType abstract="true" name="seqNo">
+        <xs:sequence/>
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:complexType>
+        <xs:complexType name="decimalPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:decimal"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="tesInsuredTypeEnumPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesInsuredTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="sexTypePolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesSexTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="phoneTypePolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesPhoneTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="datePolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:date"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="integerPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:integer"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="phoneNumberPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="tesSexTypeEnumPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesSexTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="tesPhoneTypeEnumPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesPhoneTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="plainDatePolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="tesDocumentTypeEnumPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesDocumentTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="currencyTypePolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="tns:tesCurrencyTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="emailPolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="timePolicyInfo">
+        <xs:complexContent>
+        <xs:extension base="tns:seqNo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:time"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="insuredProperty">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="address" type="xs:string"/>
+        <xs:element minOccurs="0" name="objectType" type="xs:string"/>
+        <xs:element minOccurs="0" name="mark" type="xs:string"/>
+        <xs:element minOccurs="0" name="model" type="xs:string"/>
+        <xs:element minOccurs="0" name="serialNumber" type="xs:string"/>
+        <xs:element minOccurs="0" name="warranty" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="productType" type="tns:tesPropertyProductTypeEnum"/>
+        <xs:element minOccurs="0" name="purchaseYear" type="xs:gYear"/>
+        <xs:element minOccurs="0" name="identityNumber" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="tesInsuredTypeEnumSeqNo">
+        <xs:simpleContent>
+        <xs:extension base="tns:tesInsuredTypeEnum">
+        <xs:attribute name="seqNo" type="xs:short"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="ticketInformation">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="ticketClass" type="xs:string"/>
+        <xs:element minOccurs="0" name="ticketFareType" type="xs:string"/>
+        <xs:element minOccurs="0" name="ticketFareValue" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="ticketTaxesValue" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="ticketAgentChargesValue" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="ticketTotalValue" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="ticketPriceCurrency" type="tns:tesCurrencyTypeEnum"/>
+        <xs:element minOccurs="0" name="ticketIssueDate" type="xs:dateTime"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="eventInformation">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="eventName" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="policyFullInformation">
+        <xs:complexContent>
+        <xs:extension base="tns:policyInformation">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="operator" type="xs:string"/>
+        <xs:element minOccurs="0" name="product" type="xs:string"/>
+        <xs:element minOccurs="0" name="policyType" type="xs:string"/>
+        <xs:element minOccurs="0" name="series" type="xs:string"/>
+        <xs:element minOccurs="0" name="fullNumber" type="xs:string"/>
+        <xs:element minOccurs="0" name="rate" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="policyID" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="created" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="lastUpdate" type="xs:dateTime"/>
+        <xs:element minOccurs="0" name="cancellationReason" type="xs:string"/>
+        <xs:element minOccurs="0" name="cancellationRate" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="cancellationCurrency" type="tns:tesCurrencyTypeEnum"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="userInfo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="name" type="xs:string"/>
+        <xs:element minOccurs="0" name="code" type="xs:string"/>
+        <xs:element minOccurs="0" name="role" type="xs:string"/>
+        <xs:element minOccurs="0" name="ticket" type="xs:string"/>
+        <xs:element minOccurs="0" name="properties" type="xs:string"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="permission" nillable="true" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="tesFilterQuery">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="filterItems" nillable="true" type="tns:filterItem"/>
+        <xs:element minOccurs="0" name="sort" type="xs:string"/>
+        <xs:element minOccurs="0" name="range" type="xs:string"/>
+        <xs:element minOccurs="0" name="productCode" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="filterItem">
+        <xs:sequence>
+        <xs:element name="id" type="xs:integer"/>
+        <xs:element name="field" type="xs:string"/>
+        <xs:element name="fieldType" type="xs:string"/>
+        <xs:element maxOccurs="unbounded" name="values" type="xs:string"/>
+        <xs:element name="isExclude" type="xs:boolean"/>
+        <xs:element name="like" type="xs:boolean"/>
+        <xs:element name="min" type="xs:string"/>
+        <xs:element name="max" type="xs:string"/>
+        <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="baseResult">
+        <xs:sequence>
+        <xs:element name="returnCode" type="tns:returnCode"/>
+        <xs:element name="tesVersion" type="tns:tesVersion"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="returnCode">
+        <xs:sequence>
+        <xs:element name="code" type="tns:tesReturnCodeEnum"/>
+        <xs:element minOccurs="0" name="errorMessage" type="xs:string"/>
+        <xs:element minOccurs="0" name="errorMessageID" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="tesVersion">
+        <xs:sequence>
+        <xs:element name="environmentId" type="xs:string"/>
+        <xs:element name="buildVersion" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="batchCalculationResult">
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="batchParameters" nillable="true" type="tns:batchParameters"/>
+        <xs:element minOccurs="0" name="calculationResult" type="tns:calculationResult"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="batchParameters">
+        <xs:simpleContent>
+        <xs:extension base="xs:string">
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        </xs:extension>
+        </xs:simpleContent>
+        </xs:complexType>
+        <xs:complexType name="calculationResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="promotionPremium" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="premium" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="currency" type="tns:tesCurrencyTypeEnum"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskValue" nillable="true" type="tns:riskValue"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskRate" nillable="true" type="tns:riskRate"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskRateRub" nillable="true" type="tns:riskRate"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskCurrency" nillable="true" type="tns:riskCurrency"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskFranshise" nillable="true" type="tns:riskFranshise"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="riskInsuranceType" nillable="true" type="tns:riskInsuranceType"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskValue" nillable="true" type="tns:riskValueSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskRate" nillable="true" type="tns:riskRateSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskRub" nillable="true" type="tns:riskRateSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskCurrency" nillable="true" type="tns:riskCurrencySeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskFranshise" nillable="true" type="tns:riskFranshiseSeqNo"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskInsuranceType" nillable="true" type="tns:riskInsuranceTypeSeqNo"/>
+        <xs:element minOccurs="0" name="calculationDetails" type="tns:calculationDetails"/>
+        <xs:element minOccurs="0" name="territory" type="tns:tesTerritoryReferenceEnum"/>
+        <xs:element minOccurs="0" name="beginDate" type="xs:date"/>
+        <xs:element minOccurs="0" name="endDate" type="xs:date"/>
+        <xs:element minOccurs="0" name="periodOfValidity" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="riskValueSum" type="xs:decimal"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="calculationDetails">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="premium" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="exchangeRate" type="xs:decimal"/>
+        <xs:element minOccurs="0" name="currency" type="tns:tesCurrencyTypeEnum"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="policyDocument">
+        <xs:sequence>
+        <xs:element name="url" type="xs:anyURI"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="productParametersList">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="parameter" type="tns:productParameter"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="risk" nillable="true" type="tns:productRisk"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="productParameter">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="description" type="xs:string"/>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" type="tns:tesPolicyInformationFieldEnum" use="required"/>
+        <xs:attribute name="type" type="tns:tesProductParameterTypeEnum" use="required"/>
+        </xs:complexType>
+        <xs:complexType name="productRisk">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="riskName" type="xs:string"/>
+        <xs:element minOccurs="0" name="currency" type="xs:string"/>
+        <xs:element minOccurs="0" name="franshise" type="xs:string"/>
+        <xs:element minOccurs="0" name="insuranceType" type="xs:string"/>
+        <xs:element minOccurs="0" name="isRequired" type="xs:boolean"/>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="condition" nillable="true" type="tns:riskCondition"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="riskCondition">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        <xs:element minOccurs="0" name="minValue" type="xs:string"/>
+        <xs:element minOccurs="0" name="maxValue" type="xs:string"/>
+        <xs:element minOccurs="0" name="conditionName" type="xs:string"/>
+        <xs:element minOccurs="0" name="currency" type="xs:string"/>
+        <xs:element minOccurs="0" name="franshise" type="xs:string"/>
+        <xs:element minOccurs="0" name="insuranceType" type="xs:string"/>
+        <xs:element minOccurs="0" name="isDefault" type="xs:boolean"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="productList">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="product" type="tns:productListItem"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="productListItem">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="name" type="xs:string"/>
+        <xs:element minOccurs="0" name="shortDescription" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="code" type="xs:string" use="required"/>
+        <xs:attribute name="isDefault" type="xs:boolean"/>
+        <xs:attribute name="type" type="tns:tesProductTypeEnum"/>
+        </xs:complexType>
+        <xs:complexType name="reportByAgent">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="agentCode" type="xs:string"/>
+        <xs:element minOccurs="0" name="count" type="xs:int"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="reportByMonth">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="month" type="xs:int"/>
+        <xs:element minOccurs="0" name="count" type="xs:int"/>
+        <xs:element minOccurs="0" name="year" type="xs:int"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="reportByDay">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="day" type="xs:int"/>
+        <xs:element minOccurs="0" name="count" type="xs:int"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="policySummary">
+        <xs:sequence>
+        <xs:element name="policyCount" type="xs:nonNegativeInteger"/>
+        <xs:element name="confirmedPolicyCount" type="xs:nonNegativeInteger"/>
+        <xs:element name="confirmedPolicyRateSum" type="xs:decimal"/>
+        <xs:element name="canceledPolicyCount" type="xs:nonNegativeInteger"/>
+        <xs:element name="canceledPolicyRateSum" type="xs:decimal"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="policyList">
+        <xs:complexContent>
+        <xs:extension base="tns:policySummary">
+        <xs:sequence>
+        <xs:element maxOccurs="unbounded" minOccurs="0" name="policy" nillable="true" type="tns:policyFullInformation"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="metaEnumInfo">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:string"/>
+        <xs:element minOccurs="0" name="value" type="xs:string"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:complexType name="basePolicyResult">
+        <xs:complexContent>
+        <xs:extension base="tns:baseResult">
+        <xs:sequence>
+        <xs:element minOccurs="0" name="policyId" type="xs:nonNegativeInteger"/>
+        <xs:element minOccurs="0" name="calculationResult" type="tns:calculationResult"/>
+        </xs:sequence>
+        </xs:extension>
+        </xs:complexContent>
+        </xs:complexType>
+        <xs:complexType name="policyRequest">
+        <xs:sequence>
+        <xs:element name="agent" type="tns:agent"/>
+        <xs:element name="operator" type="tns:operator"/>
+        <xs:element name="product" type="tns:product"/>
+        <xs:element name="policyParameters" type="tns:policyInformation"/>
+        </xs:sequence>
+        </xs:complexType>
+        <xs:simpleType name="tesDocumentTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="PASSPORT"/>
+        <xs:enumeration value="INTERNATIONAL"/>
+        <xs:enumeration value="IDCARD"/>
+        <xs:enumeration value="MILITARY"/>
+        <xs:enumeration value="FOREIGNER"/>
+        <xs:enumeration value="JURIDICAL"/>
+        <xs:enumeration value="ERGUL"/>
+        <xs:enumeration value="DRIVER_LICENCE"/>
+        <xs:enumeration value="BIRTHCERTIFICATE"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesPhoneTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="MOBILE"/>
+        <xs:enumeration value="HOME"/>
+        <xs:enumeration value="OFFICE"/>
+        <xs:enumeration value="OTHER"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesSexTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="MALE"/>
+        <xs:enumeration value="FEMALE"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesRiskTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="RISK_MR"/>
+        <xs:enumeration value="RISK_NSP"/>
+        <xs:enumeration value="RISK_NS"/>
+        <xs:enumeration value="RISK_FLIGHT_DELAYS_PERSONAL"/>
+        <xs:enumeration value="RISK_SPORT"/>
+        <xs:enumeration value="RISK_LOSS_LUGGAGE_PERSONAL"/>
+        <xs:enumeration value="RISK_DELAYED_LUGGAGE_PERSONAL"/>
+        <xs:enumeration value="RISK_GO"/>
+        <xs:enumeration value="RISK_LUGGAGE_MASSIVE"/>
+        <xs:enumeration value="RISK_FLIGHT_DELAYS_MASSIVE"/>
+        <xs:enumeration value="RISK_NR"/>
+        <xs:enumeration value="RISK_PROPERTY"/>
+        <xs:enumeration value="RISK_EVENT"/>
+        <xs:enumeration value="RISK_LOSS_RESTORE_DOCUMENTS"/>
+        <xs:enumeration value="RISK_LOSS_OF_WORK"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesCurrencyTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="RUB"/>
+        <xs:enumeration value="USD"/>
+        <xs:enumeration value="EUR"/>
+        <xs:enumeration value="BYN"/>
+        <xs:enumeration value="UAH"/>
+        <xs:enumeration value="KZT"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesInsuredTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="ADT"/>
+        <xs:enumeration value="CHD"/>
+        <xs:enumeration value="INF"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesPolicyStatusEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="ISSUING"/>
+        <xs:enumeration value="CONFIRMED"/>
+        <xs:enumeration value="CANCELLED"/>
+        <xs:enumeration value="DELETED"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesTravelTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="SINGLE"/>
+        <xs:enumeration value="MULTIPLE"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesVisaRequirementEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="VISA"/>
+        <xs:enumeration value="VISA_FREE"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesTerritoryReferenceEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="AUSTRALIA"/>
+        <xs:enumeration value="CANADA"/>
+        <xs:enumeration value="CARIBBEAN_COUNTRIES"/>
+        <xs:enumeration value="ISRAEL"/>
+        <xs:enumeration value="JAPAN"/>
+        <xs:enumeration value="NEW_ZEALAND"/>
+        <xs:enumeration value="UNITED_ARAB_EMIRATES"/>
+        <xs:enumeration value="UNITED_STATES"/>
+        <xs:enumeration value="RF"/>
+        <xs:enumeration value="WHOLE_WORLD"/>
+        <xs:enumeration value="WHOLE_WORLD_EXPECT_US_CANADA_JAPAN_AUSTRALIA"/>
+        <xs:enumeration value="WHOLE_WORLD_EXPECT_RUSSIA"/>
+        <xs:enumeration value="EUROPE"/>
+        <xs:enumeration value="BALTIC_EXCEPT_ESTONIA"/>
+        <xs:enumeration value="RUSSIA_90_KM_FROM_THE_PLACE_OF_PERMANENT_RESIDENCE_CIS_BALTIC"/>
+        <xs:enumeration value="RUSSIA_CSI_ESTONIA"/>
+        <xs:enumeration value="CIS"/>
+        <xs:enumeration value="US_CANADA_JAPAN_AUSTRALIA_ISRAEL_UAE"/>
+        <xs:enumeration value="SCHENGEN"/>
+        <xs:enumeration value="WHOLE_WORLD_EXPECT_CSI_AND_EUROPE"/>
+        <xs:enumeration value="WHOLE_WORLD_INCLUDING_RUSSIA_MORE_THAN_90_KM_FROM_THE_PLACE_OF_PERMANENT_RESIDENCE"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesCountryReferenceEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="ABHAZIA"/>
+        <xs:enumeration value="AFGHANISTAN"/>
+        <xs:enumeration value="ALBANIA"/>
+        <xs:enumeration value="ALGERIA"/>
+        <xs:enumeration value="AMERICAN_SAMOA"/>
+        <xs:enumeration value="ANDORRA"/>
+        <xs:enumeration value="ANGOLA"/>
+        <xs:enumeration value="ANGUILLA"/>
+        <xs:enumeration value="ANTARCTIC"/>
+        <xs:enumeration value="ANTIGUA_AND_BARBUDA"/>
+        <xs:enumeration value="ARGENTINA"/>
+        <xs:enumeration value="ARMENIA"/>
+        <xs:enumeration value="ARUBA"/>
+        <xs:enumeration value="AUSTRALIA"/>
+        <xs:enumeration value="AUSTRIA"/>
+        <xs:enumeration value="AZERBAIJAN"/>
+        <xs:enumeration value="BAHAMAS"/>
+        <xs:enumeration value="BAHRAIN"/>
+        <xs:enumeration value="BANGLADESH"/>
+        <xs:enumeration value="BARBADOS"/>
+        <xs:enumeration value="BELARUS"/>
+        <xs:enumeration value="BELGIUM"/>
+        <xs:enumeration value="BELIZE"/>
+        <xs:enumeration value="BENIN"/>
+        <xs:enumeration value="BERMUDA"/>
+        <xs:enumeration value="BHUTAN"/>
+        <xs:enumeration value="BOLIVIA"/>
+        <xs:enumeration value="BOSNIA_AND_HERZEGOWINA"/>
+        <xs:enumeration value="BOTSWANA"/>
+        <xs:enumeration value="BOUVET_ISLAND"/>
+        <xs:enumeration value="BRAZIL"/>
+        <xs:enumeration value="BRITISH_INDIAN_OCEAN_TERRITORY"/>
+        <xs:enumeration value="BRUNEI_DARUSSALAM"/>
+        <xs:enumeration value="BULGARIA"/>
+        <xs:enumeration value="BURKINA_FASO"/>
+        <xs:enumeration value="BURUNDI"/>
+        <xs:enumeration value="CAMBODJA"/>
+        <xs:enumeration value="CAMEROON"/>
+        <xs:enumeration value="CANADA"/>
+        <xs:enumeration value="CAPE_VERDE"/>
+        <xs:enumeration value="CARIBBEAN_COUNTRIES"/>
+        <xs:enumeration value="CAYMAN_ISLANDS"/>
+        <xs:enumeration value="CENTRAL_AFRICAN_REPUBLIC"/>
+        <xs:enumeration value="CHAD"/>
+        <xs:enumeration value="CHILE"/>
+        <xs:enumeration value="CHINA"/>
+        <xs:enumeration value="CHRISTMAS_ISLAND"/>
+        <xs:enumeration value="CIS"/>
+        <xs:enumeration value="COCOS_KEELING_ISLANDS"/>
+        <xs:enumeration value="COLOMBIA"/>
+        <xs:enumeration value="COMOROS"/>
+        <xs:enumeration value="CONGO"/>
+        <xs:enumeration value="COOK_ISLANDS"/>
+        <xs:enumeration value="COSTA_RICA"/>
+        <xs:enumeration value="COTE_D_IVOIRE"/>
+        <xs:enumeration value="CROATIA"/>
+        <xs:enumeration value="CUBA"/>
+        <xs:enumeration value="CYPRUS"/>
+        <xs:enumeration value="CZECH_REPUBLIC"/>
+        <xs:enumeration value="DENMARK"/>
+        <xs:enumeration value="DJIBOUTI"/>
+        <xs:enumeration value="DOMINICA"/>
+        <xs:enumeration value="DOMINICAN_REPUBLIC"/>
+        <xs:enumeration value="EAST_TIMOR"/>
+        <xs:enumeration value="ECUADOR"/>
+        <xs:enumeration value="EGYPT"/>
+        <xs:enumeration value="EL_SALVADOR"/>
+        <xs:enumeration value="EQUATORIAL_GUINEA"/>
+        <xs:enumeration value="ERITREA"/>
+        <xs:enumeration value="ESTONIA"/>
+        <xs:enumeration value="ETHIOPIA"/>
+        <xs:enumeration value="EUROPE"/>
+        <xs:enumeration value="FALKLAND_ISLANDS_MALVINAS"/>
+        <xs:enumeration value="FAROE_ISLANDS"/>
+        <xs:enumeration value="FIJI"/>
+        <xs:enumeration value="FINLAND"/>
+        <xs:enumeration value="FRANCE"/>
+        <xs:enumeration value="FRENCH_GUIANA"/>
+        <xs:enumeration value="FRENCH_POLYNESIA"/>
+        <xs:enumeration value="FRENCH_SOUTHERN_TERRITORIES"/>
+        <xs:enumeration value="GABON"/>
+        <xs:enumeration value="GAMBIA"/>
+        <xs:enumeration value="GEORGIA"/>
+        <xs:enumeration value="GERMANY"/>
+        <xs:enumeration value="GHANA"/>
+        <xs:enumeration value="GIBRALTAR"/>
+        <xs:enumeration value="GREECE"/>
+        <xs:enumeration value="GREENLAND"/>
+        <xs:enumeration value="GRENADA"/>
+        <xs:enumeration value="GUADELOUPE"/>
+        <xs:enumeration value="GUAM"/>
+        <xs:enumeration value="GUATEMALA"/>
+        <xs:enumeration value="GUINEA"/>
+        <xs:enumeration value="GUINEA-BISSAU"/>
+        <xs:enumeration value="GUYANA"/>
+        <xs:enumeration value="HAITI"/>
+        <xs:enumeration value="HEARD_AND_MCDONALD_ISLANDS"/>
+        <xs:enumeration value="HOLY_SEE_VATICAN_CITY_STATE"/>
+        <xs:enumeration value="HONDURAS"/>
+        <xs:enumeration value="HONG_KONG"/>
+        <xs:enumeration value="HUNGARY"/>
+        <xs:enumeration value="ICELAND"/>
+        <xs:enumeration value="INDIA"/>
+        <xs:enumeration value="INDONESIA"/>
+        <xs:enumeration value="IRAN_ISLAMIC_EPUBLIC_OF_IRAN"/>
+        <xs:enumeration value="IRAQ"/>
+        <xs:enumeration value="IRELAND"/>
+        <xs:enumeration value="ISRAEL"/>
+        <xs:enumeration value="ITALY"/>
+        <xs:enumeration value="JAMAICA"/>
+        <xs:enumeration value="JAPAN"/>
+        <xs:enumeration value="JORDAN"/>
+        <xs:enumeration value="KAZAKHSTAN"/>
+        <xs:enumeration value="KENYA"/>
+        <xs:enumeration value="KIRIBATI"/>
+        <xs:enumeration value="KOREA_DEMOCRATIC_PEOPLE_S_REPUBLIC_OF_KOREA_DPRK"/>
+        <xs:enumeration value="KOREA_REPUBLIC_OF_KOREA"/>
+        <xs:enumeration value="KUWAIT"/>
+        <xs:enumeration value="KYRGYZSTAN"/>
+        <xs:enumeration value="LAO_PEOPLE_S_DEMOCRATIC_REPUBLIC"/>
+        <xs:enumeration value="LATVIA"/>
+        <xs:enumeration value="LEBANON"/>
+        <xs:enumeration value="LESOTHO"/>
+        <xs:enumeration value="LIBERIA"/>
+        <xs:enumeration value="LIBYAN_ARAB_JAMAHIRIYA"/>
+        <xs:enumeration value="LIECHTENSTEIN"/>
+        <xs:enumeration value="LITHUANIA"/>
+        <xs:enumeration value="LUXEMBOURG"/>
+        <xs:enumeration value="MACAU"/>
+        <xs:enumeration value="MACEDONIA"/>
+        <xs:enumeration value="MADAGASCAR"/>
+        <xs:enumeration value="MALAWI"/>
+        <xs:enumeration value="MALAYSIA"/>
+        <xs:enumeration value="MALDIVES"/>
+        <xs:enumeration value="MALI"/>
+        <xs:enumeration value="MALTA"/>
+        <xs:enumeration value="MARSHALL_ISLANDS"/>
+        <xs:enumeration value="MARTINIQUE"/>
+        <xs:enumeration value="MAURITANIA"/>
+        <xs:enumeration value="MAURITIUS"/>
+        <xs:enumeration value="MAYOTTE"/>
+        <xs:enumeration value="MEXICO"/>
+        <xs:enumeration value="MICRONESIA"/>
+        <xs:enumeration value="MOLDOVA"/>
+        <xs:enumeration value="MONACO"/>
+        <xs:enumeration value="MONGOLIA"/>
+        <xs:enumeration value="MONTENEGRO"/>
+        <xs:enumeration value="MONTSERRAT"/>
+        <xs:enumeration value="MOROCCO"/>
+        <xs:enumeration value="MOZAMBIQUE"/>
+        <xs:enumeration value="MYANMAR"/>
+        <xs:enumeration value="NAMIBIA"/>
+        <xs:enumeration value="NAURU"/>
+        <xs:enumeration value="NEPAL"/>
+        <xs:enumeration value="NETHERLANDS_ANTILLES"/>
+        <xs:enumeration value="NETHERLANDS"/>
+        <xs:enumeration value="NEW_CALEDONIA"/>
+        <xs:enumeration value="NEW_ZEALAND"/>
+        <xs:enumeration value="NICARAGUA"/>
+        <xs:enumeration value="NIGER"/>
+        <xs:enumeration value="NIGERIA"/>
+        <xs:enumeration value="NIUE"/>
+        <xs:enumeration value="NORFOLK_ISLAND"/>
+        <xs:enumeration value="NORTHERN_MARIANA_ISLANDS"/>
+        <xs:enumeration value="NORWAY"/>
+        <xs:enumeration value="OMAN"/>
+        <xs:enumeration value="PAKISTAN"/>
+        <xs:enumeration value="PALAU"/>
+        <xs:enumeration value="PANAMA"/>
+        <xs:enumeration value="PAPUA_NEW_GUINEA"/>
+        <xs:enumeration value="PARAGUAY"/>
+        <xs:enumeration value="PERU"/>
+        <xs:enumeration value="PHILIPPINES"/>
+        <xs:enumeration value="PITCAIRN"/>
+        <xs:enumeration value="POLAND"/>
+        <xs:enumeration value="PORTUGAL"/>
+        <xs:enumeration value="PUERTO_RICO"/>
+        <xs:enumeration value="QATAR"/>
+        <xs:enumeration value="REUNION"/>
+        <xs:enumeration value="RF"/>
+        <xs:enumeration value="ROMANIA"/>
+        <xs:enumeration value="RUSSIA"/>
+        <xs:enumeration value="RUSSIAN_FEDERATION"/>
+        <xs:enumeration value="RWANDA"/>
+        <xs:enumeration value="SAINT_CHRISTOPHER_AND_NEVIS"/>
+        <xs:enumeration value="SAINT_LUCIA"/>
+        <xs:enumeration value="SAINT_VINCENT"/>
+        <xs:enumeration value="SAMOA"/>
+        <xs:enumeration value="SAN_MARINO"/>
+        <xs:enumeration value="SAO_TOMEA_AND_PRINCIPE"/>
+        <xs:enumeration value="SAUDI_ARABIA"/>
+        <xs:enumeration value="SCHENGEN"/>
+        <xs:enumeration value="SENEGAL"/>
+        <xs:enumeration value="SERBIA"/>
+        <xs:enumeration value="SEYCHELLES"/>
+        <xs:enumeration value="SIERRA_LEONE"/>
+        <xs:enumeration value="SINGAPORE"/>
+        <xs:enumeration value="SLOVAKIA_SLOVAK_REPUBLIC"/>
+        <xs:enumeration value="SLOVENIA"/>
+        <xs:enumeration value="SOLOMON_ISLANDS"/>
+        <xs:enumeration value="SOMALIA"/>
+        <xs:enumeration value="SOUTH_AFRICA"/>
+        <xs:enumeration value="SPAIN"/>
+        <xs:enumeration value="SRI_LANKA"/>
+        <xs:enumeration value="ST_HELENA"/>
+        <xs:enumeration value="ST_PIERRE_AND_MIQUELON"/>
+        <xs:enumeration value="SUDAN"/>
+        <xs:enumeration value="SURINAME"/>
+        <xs:enumeration value="SVALBARD_AND_JAN_MAYEN_ISLANDS"/>
+        <xs:enumeration value="SWAZILAND"/>
+        <xs:enumeration value="SWEDEN"/>
+        <xs:enumeration value="SWITZERLAND"/>
+        <xs:enumeration value="SYRIAN_ARAB_REPUBLIC"/>
+        <xs:enumeration value="TAIWAN"/>
+        <xs:enumeration value="TAJIKISTAN"/>
+        <xs:enumeration value="TANZANIA"/>
+        <xs:enumeration value="THAILAND"/>
+        <xs:enumeration value="TOGO"/>
+        <xs:enumeration value="TOKELAU"/>
+        <xs:enumeration value="TONGA"/>
+        <xs:enumeration value="TRINIDAD_AND_TOBAGO"/>
+        <xs:enumeration value="TUNISIA"/>
+        <xs:enumeration value="TURKEY"/>
+        <xs:enumeration value="TURKMENISTAN"/>
+        <xs:enumeration value="TURKS_AND_CAICOS_ISLANDS"/>
+        <xs:enumeration value="TUVALU"/>
+        <xs:enumeration value="UGANDA"/>
+        <xs:enumeration value="UKRAINE"/>
+        <xs:enumeration value="UNITED_ARAB_EMIRATES"/>
+        <xs:enumeration value="UNITED_KINGDOM"/>
+        <xs:enumeration value="UNITED_STATES"/>
+        <xs:enumeration value="URUGUAY"/>
+        <xs:enumeration value="US_MINOR_OUTLYING_ISLANDS"/>
+        <xs:enumeration value="UZBEKISTAN"/>
+        <xs:enumeration value="VANUATU"/>
+        <xs:enumeration value="VENEZUELA"/>
+        <xs:enumeration value="VIET_NAM"/>
+        <xs:enumeration value="VIRGIN_ISLANDS_BRITISH"/>
+        <xs:enumeration value="VIRGIN_ISLANDS_US"/>
+        <xs:enumeration value="WALLIS_AND_FUTUNA_ISLANDS"/>
+        <xs:enumeration value="WESTERN_SAHARA"/>
+        <xs:enumeration value="WORLD_WIDE"/>
+        <xs:enumeration value="WORLD_WIDE_EXCEPTING_RF"/>
+        <xs:enumeration value="WORLD_WIDE_EXCEPTING_USA_CANADA_JAPAN_AUSTRALIA"/>
+        <xs:enumeration value="YEMEN"/>
+        <xs:enumeration value="YUGOSLAVIA"/>
+        <xs:enumeration value="ZAIRE"/>
+        <xs:enumeration value="ZAMBIA"/>
+        <xs:enumeration value="ZIMBABWE"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesSportTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="MOUNTAINEERING"/>
+        <xs:enumeration value="BICYCLE"/>
+        <xs:enumeration value="DOWNHILL_SKIING"/>
+        <xs:enumeration value="SKIING"/>
+        <xs:enumeration value="MOUNTAIN_TOURISM"/>
+        <xs:enumeration value="HANG_GLIDING_PARAGLIDING_PARACHUTING"/>
+        <xs:enumeration value="MARTIAL_ARTS"/>
+        <xs:enumeration value="WINTER_SPORTS_EXCEPT_MOUNTAIN_SKIING"/>
+        <xs:enumeration value="TEAM_SPORTS"/>
+        <xs:enumeration value="EQUESTRIAN_SPORT"/>
+        <xs:enumeration value="TRACK_AND_FIELD"/>
+        <xs:enumeration value="SAILING_CAT_1_RIVER_LAKE"/>
+        <xs:enumeration value="SAILING_CAT_2_SEA"/>
+        <xs:enumeration value="SWIMMING"/>
+        <xs:enumeration value="SPEARFISHING_DIVING"/>
+        <xs:enumeration value="DIVING"/>
+        <xs:enumeration value="JUMPING"/>
+        <xs:enumeration value="ALLOY"/>
+        <xs:enumeration value="WEIGHTLIFTING"/>
+        <xs:enumeration value="FREE_CALLISTHENICS"/>
+        <xs:enumeration value="COMMON_SPORT"/>
+        <xs:enumeration value="DANGEROUS_SPORT"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesCompetitionEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="YES"/>
+        <xs:enumeration value="YES_RF"/>
+        <xs:enumeration value="NO"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesPropertyProductTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="PORTABLE"/>
+        <xs:enumeration value="STATIONARY"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesReturnCodeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="OK"/>
+        <xs:enumeration value="BAD_OPERATOR"/>
+        <xs:enumeration value="BAD_PRODUCT"/>
+        <xs:enumeration value="POLICY_NOT_FOUND"/>
+        <xs:enumeration value="NOT_ENOUTH_PARAMETERS"/>
+        <xs:enumeration value="BAD_PARAMETER"/>
+        <xs:enumeration value="TRANSPORT_ERROR"/>
+        <xs:enumeration value="CALCULATION_ERROR"/>
+        <xs:enumeration value="PAYMENT_ERROR"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesPolicyInformationFieldEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="PNR"/>
+        <xs:enumeration value="INSURED_COUNT"/>
+        <xs:enumeration value="INSURED_FIRST_NAME"/>
+        <xs:enumeration value="INSURED_LAST_NAME"/>
+        <xs:enumeration value="INSURED_PATRONYMIC"/>
+        <xs:enumeration value="INSURED_BIRTH_DATE"/>
+        <xs:enumeration value="INSURED_DOCUMENT_TYPE"/>
+        <xs:enumeration value="INSURED_DOCUMENT_NUMBER"/>
+        <xs:enumeration value="INSURED_TICKET_NUMBER"/>
+        <xs:enumeration value="INSURED_EMAIL"/>
+        <xs:enumeration value="INSURED_PHONE"/>
+        <xs:enumeration value="INSURED_PHONE_TYPE"/>
+        <xs:enumeration value="INSURED_SEX"/>
+        <xs:enumeration value="INSURED_ADDRESS"/>
+        <xs:enumeration value="INSURED_ID_CARD"/>
+        <xs:enumeration value="INSURER_FIRST_NAME"/>
+        <xs:enumeration value="INSURER_LAST_NAME"/>
+        <xs:enumeration value="INSURER_PATRONYMIC"/>
+        <xs:enumeration value="INSURER_BIRTH_DATE"/>
+        <xs:enumeration value="INSURER_DOCUMENT_TYPE"/>
+        <xs:enumeration value="INSURER_DOCUMENT_NUMBER"/>
+        <xs:enumeration value="INSURER_EMAIL"/>
+        <xs:enumeration value="INSURER_PHONE"/>
+        <xs:enumeration value="INSURER_PHONE_TYPE"/>
+        <xs:enumeration value="INSURER_SEX"/>
+        <xs:enumeration value="INSURER_ADDRESS"/>
+        <xs:enumeration value="INSURER_ID_CARD"/>
+        <xs:enumeration value="FLIGHT_SEGMENTS_COUNT"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_TRANSPORT_OPERATOR_CODE"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_FLIGHT_NUMBER"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_DEPARTURE_DATE"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_DEPARTURE_TIME"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_DEPARTURE_AIRPORT"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_DEPARTURE_COUNTRY"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_ARRIVAL_DATE"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_ARRIVAL_TIME"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_ARRIVAL_AIRPORT"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_ARRIVAL_COUNTRY"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_CURRENCY"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_PREMIUM"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_CONNECTION_TIME"/>
+        <xs:enumeration value="PAYMENT_TYPE"/>
+        <xs:enumeration value="SALE_SESSION"/>
+        <xs:enumeration value="DESK_CITY"/>
+        <xs:enumeration value="CUSTOMER_PHONE"/>
+        <xs:enumeration value="CUSTOMER_PHONE_TYPE"/>
+        <xs:enumeration value="CUSTOMER_EMAIL"/>
+        <xs:enumeration value="CURRENCY"/>
+        <xs:enumeration value="COMMENT"/>
+        <xs:enumeration value="BEGIN_DATE"/>
+        <xs:enumeration value="END_DATE"/>
+        <xs:enumeration value="TERRITORY"/>
+        <xs:enumeration value="TRAVEL_TYPE"/>
+        <xs:enumeration value="VISA"/>
+        <xs:enumeration value="OFFICE_TRAVEL_TYPE"/>
+        <xs:enumeration value="PERIOD_OF_VALIDITY"/>
+        <xs:enumeration value="POLICY_DAYS_COUNT"/>
+        <xs:enumeration value="RISKS"/>
+        <xs:enumeration value="SUBAGENT_CODE"/>
+        <xs:enumeration value="EMERGENCY"/>
+        <xs:enumeration value="LUGGAGE"/>
+        <xs:enumeration value="SEATS_COUNT"/>
+        <xs:enumeration value="SPORT"/>
+        <xs:enumeration value="COMPETITION"/>
+        <xs:enumeration value="COUNTRY"/>
+        <xs:enumeration value="INSURED_NATIONALITY"/>
+        <xs:enumeration value="RAILWAY_SEGMENTS_COUNT"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_TRAIN_NUMBER"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_RAILCAR_NUMBER"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_RAILCAR_TYPE"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_SERVICE_CLASS"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_PLACE_NUMBER"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_DEPARTURE_STATION"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_DEPARTURE_DATE"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_DEPARTURE_TIME"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_ARRIVAL_STATION"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_ARRIVAL_DATE"/>
+        <xs:enumeration value="RAILWAY_SEGMENT_ARRIVAL_TIME"/>
+        <xs:enumeration value="FLIGHT_SEGMENT_SERVICE_CLASS"/>
+        <xs:enumeration value="INSURED_PROPERTY_ADDRESS"/>
+        <xs:enumeration value="MEDICAL_COVERAGE"/>
+        <xs:enumeration value="PERSONAL_COVERAGE"/>
+        <xs:enumeration value="GENERIC_COVERAGE"/>
+        <xs:enumeration value="INSURED_TYPE"/>
+        <xs:enumeration value="INSURED_PROPERTY_OBJECT_TYPE"/>
+        <xs:enumeration value="INSURED_PROPERTY_MARK"/>
+        <xs:enumeration value="INSURED_PROPERTY_MODEL"/>
+        <xs:enumeration value="INSURED_PROPERTY_SERIAL_NUMBER"/>
+        <xs:enumeration value="INSURED_PROPERTY_WARRANTY"/>
+        <xs:enumeration value="INSURED_PROPERTY_PRODUCT_TYPE"/>
+        <xs:enumeration value="INSURED_PROPERTY_PURCHASE_YEAR"/>
+        <xs:enumeration value="INSURED_PROPERTY_IDENTITY_NUMBER"/>
+        <xs:enumeration value="TICKET_CLASS"/>
+        <xs:enumeration value="TICKET_FARE_TYPE"/>
+        <xs:enumeration value="TICKET_FARE_VALUE"/>
+        <xs:enumeration value="TICKET_TAXES_VALUE"/>
+        <xs:enumeration value="TICKET_AGENT_CHARGES_VALUE"/>
+        <xs:enumeration value="TICKET_TOTAL_VALUE"/>
+        <xs:enumeration value="TICKET_PRICE_CURRENCY"/>
+        <xs:enumeration value="TICKET_ISSUE_DATE"/>
+        <xs:enumeration value="EVENT_NAME"/>
+        <xs:enumeration value="POLICY_ORDER_ID"/>
+        <xs:enumeration value="BUS_SEGMENTS_COUNT"/>
+        <xs:enumeration value="BUS_SEGMENT_ROUTE_NUMBER"/>
+        <xs:enumeration value="BUS_SEGMENT_PLACE_NUMBER"/>
+        <xs:enumeration value="BUS_SEGMENT_NUMBER"/>
+        <xs:enumeration value="BUS_SEGMENT_DEPARTURE_STATION"/>
+        <xs:enumeration value="BUS_SEGMENT_DEPARTURE_DATE"/>
+        <xs:enumeration value="BUS_SEGMENT_DEPARTURE_TIME"/>
+        <xs:enumeration value="BUS_SEGMENT_ARRIVAL_STATION"/>
+        <xs:enumeration value="BUS_SEGMENT_ARRIVAL_DATE"/>
+        <xs:enumeration value="BUS_SEGMENT_ARRIVAL_TIME"/>
+        <xs:enumeration value="LOAN_SUM"/>
+        <xs:enumeration value="MONTHLY_PAYMENT"/>
+        <xs:enumeration value="LOAN_TERM"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesProductParameterTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="MANDATORY"/>
+        <xs:enumeration value="OPTIONAL"/>
+        <xs:enumeration value="FIXED"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType name="tesProductTypeEnum">
+        <xs:restriction base="xs:string">
+        <xs:enumeration value="TRAVEL"/>
+        <xs:enumeration value="AIR"/>
+        <xs:enumeration value="SABRE"/>
+        <xs:enumeration value="TRAVEL_AIR"/>
+        <xs:enumeration value="RAILWAY"/>
+        <xs:enumeration value="AMADEUS_AIR"/>
+        <xs:enumeration value="AMADEUS_TRAVEL_AIR"/>
+        <xs:enumeration value="PROPERTY"/>
+        <xs:enumeration value="EVENT"/>
+        <xs:enumeration value="BUS"/>
+        <xs:enumeration value="TAXI"/>
+        <xs:enumeration value="LOAN"/>
+        </xs:restriction>
+        </xs:simpleType>
+        <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
+        </xs:schema>
+          </wsdl:types>
+          <wsdl:message name="signin">
+            <wsdl:part element="tns:signinRequest" name="signinRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getCalculationParametersResponse">
+            <wsdl:part element="tns:calculationParametersResult" name="calculationParametersResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="changeOperatorPassowrd">
+            <wsdl:part element="tns:changeOperatorPassowrdRequest" name="changeOperatorPassowrdRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="cancelPolicyOrder">
+            <wsdl:part element="tns:cancelPolicyOrderRequest" name="cancelPolicyOrderRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="policyListSummaryResponse">
+            <wsdl:part element="tns:policyListSummaryResult" name="policyListSummaryResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="saveOperator">
+            <wsdl:part element="tns:saveOperatorRequest" name="saveOperatorRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="returnPolicy">
+            <wsdl:part element="tns:returnPolicyRequest" name="returnPolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getAvailableProducts">
+            <wsdl:part element="tns:availableProductsRequest" name="availableProductsRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyList">
+            <wsdl:part element="tns:getPolicyListRequest" name="policyListRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="tripCancellationResponse">
+            <wsdl:part element="tns:tripCancellationResult" name="tripCancellationResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="changeOperatorPassowrdResponse">
+            <wsdl:part element="tns:changeOperatorPassowrdResult" name="hangeOperatorPassowrdResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="exportPolicyList">
+            <wsdl:part element="tns:getPolicyListRequest" name="policyListRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="createPolicyOrderResponse">
+            <wsdl:part element="tns:createPolicyOrderResult" name="createPolicyOrderResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyParameters">
+            <wsdl:part element="tns:policyParametersRequest" name="policyParametersRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="returnPolicyResponse">
+            <wsdl:part element="tns:returnPolicyResult" name="returnPolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="refundPolicy">
+            <wsdl:part element="tns:refundPolicyRequest" name="refundPolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="batchCalculatePolicyResponse">
+            <wsdl:part element="tns:batchCalculatePolicyResult" name="batchCalculatePolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyResponse">
+            <wsdl:part element="tns:getPolicyResult" name="getPolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyListResponse">
+            <wsdl:part element="tns:getPolicyListResult" name="policyListResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="signout">
+            <wsdl:part element="tns:signoutRequest" name="signoutRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyListMetaInformationResponse">
+            <wsdl:part element="tns:policyListMetaInformation" name="policyListMetaInforamtion">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="cancelPolicy">
+            <wsdl:part element="tns:cancelPolicyRequest" name="cancelPolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="tripCancellation">
+            <wsdl:part element="tns:tripCancellationRequest" name="tripCancellationRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="updatePolicy">
+            <wsdl:part element="tns:updatePolicyRequest" name="updatePolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="cancelPolicyResponse">
+            <wsdl:part element="tns:cancelPolicyResult" name="cancelPolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getCalculationParameters">
+            <wsdl:part element="tns:calculationParametersRequest" name="calculationParametersRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="signinResponse">
+            <wsdl:part element="tns:signinResult" name="signinResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getAvailableProductsResponse">
+            <wsdl:part element="tns:availableProductsResult" name="availableProductsResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="payPolicyOrder">
+            <wsdl:part element="tns:payPolicyOrderRequest" name="payPolicyOrderRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="signoutResponse">
+            <wsdl:part element="tns:signoutResult" name="signoutResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="createPolicyResponse">
+            <wsdl:part element="tns:createPolicyResult" name="createPolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="cancelPolicyOrderResponse">
+            <wsdl:part element="tns:cancelPolicyOrderResult" name="cancelPolicyOrderResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="updatePolicyResponse">
+            <wsdl:part element="tns:updatePolicyResult" name="updatePolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="policyListSummary">
+            <wsdl:part element="tns:policyListSummaryRequest" name="policyListSummaryRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="calculatePolicyResponse">
+            <wsdl:part element="tns:calculatePolicyResult" name="calculatePolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyListMetaInformation">
+            <wsdl:part element="tns:operator" name="operator">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="saveOperatorResponse">
+            <wsdl:part element="tns:saveOperatorResult" name="saveOperatorResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="calculatePolicy">
+            <wsdl:part element="tns:calculatePolicyRequest" name="calculatePolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="exportPolicyListResponse">
+            <wsdl:part element="tns:base64Binary" name="base64Binary">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="payPolicyOrderResponse">
+            <wsdl:part element="tns:payPolicyOrderResult" name="payPolicyOrderResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="refundPolicyResponse">
+            <wsdl:part element="tns:refundPolicyResult" name="refundPolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="createPolicy">
+            <wsdl:part element="tns:createPolicyRequest" name="createPolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="confirmPolicyResponse">
+            <wsdl:part element="tns:confirmPolicyResult" name="confirmPolicyResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicy">
+            <wsdl:part element="tns:getPolicyRequest" name="getPolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="createPolicyOrder">
+            <wsdl:part element="tns:createPolicyOrderRequest" name="createPolicyOrderRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="batchCalculatePolicy">
+            <wsdl:part element="tns:batchCalculatePolicyRequest" name="batchCalculatePolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="getPolicyParametersResponse">
+            <wsdl:part element="tns:policyParametersResult" name="policyParametersResult">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:message name="confirmPolicy">
+            <wsdl:part element="tns:confirmPolicyRequest" name="confirmPolicyRequest">
+            </wsdl:part>
+          </wsdl:message>
+          <wsdl:portType name="travelExtService">
+            <wsdl:operation name="policyListSummary">
+              <wsdl:input message="tns:policyListSummary" name="policyListSummary">
+            </wsdl:input>
+              <wsdl:output message="tns:policyListSummaryResponse" name="policyListSummaryResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="exportPolicyList">
+              <wsdl:input message="tns:exportPolicyList" name="exportPolicyList">
+            </wsdl:input>
+              <wsdl:output message="tns:exportPolicyListResponse" name="exportPolicyListResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="signout">
+              <wsdl:input message="tns:signout" name="signout">
+            </wsdl:input>
+              <wsdl:output message="tns:signoutResponse" name="signoutResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="refundPolicy">
+              <wsdl:input message="tns:refundPolicy" name="refundPolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:refundPolicyResponse" name="refundPolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="changeOperatorPassowrd">
+              <wsdl:input message="tns:changeOperatorPassowrd" name="changeOperatorPassowrd">
+            </wsdl:input>
+              <wsdl:output message="tns:changeOperatorPassowrdResponse" name="changeOperatorPassowrdResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="calculatePolicy">
+              <wsdl:input message="tns:calculatePolicy" name="calculatePolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:calculatePolicyResponse" name="calculatePolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="batchCalculatePolicy">
+              <wsdl:input message="tns:batchCalculatePolicy" name="batchCalculatePolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:batchCalculatePolicyResponse" name="batchCalculatePolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="returnPolicy">
+              <wsdl:input message="tns:returnPolicy" name="returnPolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:returnPolicyResponse" name="returnPolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="payPolicyOrder">
+              <wsdl:input message="tns:payPolicyOrder" name="payPolicyOrder">
+            </wsdl:input>
+              <wsdl:output message="tns:payPolicyOrderResponse" name="payPolicyOrderResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="cancelPolicyOrder">
+              <wsdl:input message="tns:cancelPolicyOrder" name="cancelPolicyOrder">
+            </wsdl:input>
+              <wsdl:output message="tns:cancelPolicyOrderResponse" name="cancelPolicyOrderResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="tripCancellation">
+              <wsdl:input message="tns:tripCancellation" name="tripCancellation">
+            </wsdl:input>
+              <wsdl:output message="tns:tripCancellationResponse" name="tripCancellationResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="saveOperator">
+              <wsdl:input message="tns:saveOperator" name="saveOperator">
+            </wsdl:input>
+              <wsdl:output message="tns:saveOperatorResponse" name="saveOperatorResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="cancelPolicy">
+              <wsdl:input message="tns:cancelPolicy" name="cancelPolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:cancelPolicyResponse" name="cancelPolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicy">
+              <wsdl:input message="tns:getPolicy" name="getPolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:getPolicyResponse" name="getPolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicyListMetaInformation">
+              <wsdl:input message="tns:getPolicyListMetaInformation" name="getPolicyListMetaInformation">
+            </wsdl:input>
+              <wsdl:output message="tns:getPolicyListMetaInformationResponse" name="getPolicyListMetaInformationResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicyList">
+              <wsdl:input message="tns:getPolicyList" name="getPolicyList">
+            </wsdl:input>
+              <wsdl:output message="tns:getPolicyListResponse" name="getPolicyListResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="confirmPolicy">
+              <wsdl:input message="tns:confirmPolicy" name="confirmPolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:confirmPolicyResponse" name="confirmPolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicyParameters">
+              <wsdl:input message="tns:getPolicyParameters" name="getPolicyParameters">
+            </wsdl:input>
+              <wsdl:output message="tns:getPolicyParametersResponse" name="getPolicyParametersResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="createPolicy">
+              <wsdl:input message="tns:createPolicy" name="createPolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:createPolicyResponse" name="createPolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="signin">
+              <wsdl:input message="tns:signin" name="signin">
+            </wsdl:input>
+              <wsdl:output message="tns:signinResponse" name="signinResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getCalculationParameters">
+              <wsdl:input message="tns:getCalculationParameters" name="getCalculationParameters">
+            </wsdl:input>
+              <wsdl:output message="tns:getCalculationParametersResponse" name="getCalculationParametersResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getAvailableProducts">
+              <wsdl:input message="tns:getAvailableProducts" name="getAvailableProducts">
+            </wsdl:input>
+              <wsdl:output message="tns:getAvailableProductsResponse" name="getAvailableProductsResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="updatePolicy">
+              <wsdl:input message="tns:updatePolicy" name="updatePolicy">
+            </wsdl:input>
+              <wsdl:output message="tns:updatePolicyResponse" name="updatePolicyResponse">
+            </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="createPolicyOrder">
+              <wsdl:input message="tns:createPolicyOrder" name="createPolicyOrder">
+            </wsdl:input>
+              <wsdl:output message="tns:createPolicyOrderResponse" name="createPolicyOrderResponse">
+            </wsdl:output>
+            </wsdl:operation>
+          </wsdl:portType>
+          <wsdl:binding name="TravelExtServiceImplServiceSoapBinding" type="tns:travelExtService">
+            <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+            <wsdl:operation name="exportPolicyList">
+              <soap:operation soapAction="" style="document"/>
+              <wsdl:input name="exportPolicyList">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="exportPolicyListResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="policyListSummary">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/policyListSummary" style="document"/>
+              <wsdl:input name="policyListSummary">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="policyListSummaryResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="signout">
+              <soap:operation soapAction="" style="document"/>
+              <wsdl:input name="signout">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="signoutResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="calculatePolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/calculatePolicy" style="document"/>
+              <wsdl:input name="calculatePolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="calculatePolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="changeOperatorPassowrd">
+              <soap:operation soapAction="" style="document"/>
+              <wsdl:input name="changeOperatorPassowrd">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="changeOperatorPassowrdResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="refundPolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/refundPolicy" style="document"/>
+              <wsdl:input name="refundPolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="refundPolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="batchCalculatePolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/batchCalculatePolicy" style="document"/>
+              <wsdl:input name="batchCalculatePolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="batchCalculatePolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="payPolicyOrder">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/payPolicyOrder" style="document"/>
+              <wsdl:input name="payPolicyOrder">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="payPolicyOrderResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="returnPolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/returnPolicy" style="document"/>
+              <wsdl:input name="returnPolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="returnPolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="cancelPolicyOrder">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/cancelPolicyOrder" style="document"/>
+              <wsdl:input name="cancelPolicyOrder">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="cancelPolicyOrderResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="tripCancellation">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/tripCancellation" style="document"/>
+              <wsdl:input name="tripCancellation">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="tripCancellationResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="saveOperator">
+              <soap:operation soapAction="" style="document"/>
+              <wsdl:input name="saveOperator">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="saveOperatorResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="cancelPolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/cancelPolicy" style="document"/>
+              <wsdl:input name="cancelPolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="cancelPolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/getPolicy" style="document"/>
+              <wsdl:input name="getPolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="getPolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicyListMetaInformation">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/getPolicyListMetaInformation" style="document"/>
+              <wsdl:input name="getPolicyListMetaInformation">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="getPolicyListMetaInformationResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicyList">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/getPolicyList" style="document"/>
+              <wsdl:input name="getPolicyList">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="getPolicyListResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="confirmPolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/confirmPolicy" style="document"/>
+              <wsdl:input name="confirmPolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="confirmPolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getPolicyParameters">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/getPolicyParameters" style="document"/>
+              <wsdl:input name="getPolicyParameters">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="getPolicyParametersResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="createPolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/createPolicy" style="document"/>
+              <wsdl:input name="createPolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="createPolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="signin">
+              <soap:operation soapAction="" style="document"/>
+              <wsdl:input name="signin">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="signinResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getCalculationParameters">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/getCalculationParameters" style="document"/>
+              <wsdl:input name="getCalculationParameters">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="getCalculationParametersResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="getAvailableProducts">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/getAvailableProducts" style="document"/>
+              <wsdl:input name="getAvailableProducts">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="getAvailableProductsResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="updatePolicy">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/updatePolicy" style="document"/>
+              <wsdl:input name="updatePolicy">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="updatePolicyResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+            <wsdl:operation name="createPolicyOrder">
+              <soap:operation soapAction="http://vtsft.ru/travelExtService/createPolicyOrder" style="document"/>
+              <wsdl:input name="createPolicyOrder">
+                <soap:body use="literal"/>
+              </wsdl:input>
+              <wsdl:output name="createPolicyOrderResponse">
+                <soap:body use="literal"/>
+              </wsdl:output>
+            </wsdl:operation>
+          </wsdl:binding>
+          <wsdl:service name="TravelExtServiceImplService">
+            <wsdl:port binding="tns:TravelExtServiceImplServiceSoapBinding" name="TravelExtServiceImplPort">
+              <soap:address location="http://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService"/>
+            </wsdl:port>
+          </wsdl:service>
+        </wsdl:definitions>
+    http_version: 
+  recorded_at: Wed, 14 Mar 2018 11:20:18 GMT
+- request:
+    method: post
+    uri: http://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService
+    body:
+      encoding: UTF-8
+      string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://vtsft.ru/travelExtService/"
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:createPolicyRequest><tns:operator><tns:code>TestBusOperator</tns:code></tns:operator><tns:product><tns:code>TEST-BUS</tns:code></tns:product><tns:policyParameters><tns:insuredFirstName/><tns:insuredLastName/><tns:insuredPatronymic/><tns:insuredBirthDate/><tns:insuredCount>1</tns:insuredCount><tns:busSegmentsCount>0</tns:busSegmentsCount><tns:ticketInformation><tns:ticketTotalValue/></tns:ticketInformation><tns:customerPhoneType>MOBILE</tns:customerPhoneType><tns:customerPhone/><tns:customerEmail/></tns:policyParameters></tns:createPolicyRequest></env:Body></env:Envelope>
+    headers:
+      Soapaction:
+      - '"http://vtsft.ru/travelExtService/createPolicy"'
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Content-Length:
+      - '843'
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Server:
+      - nginx/1.10.3 (Ubuntu)
+      Date:
+      - Wed, 14 Mar 2018 11:20:19 GMT
+      Content-Type:
+      - text/xml;charset=UTF-8
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - Set-Cookie, Cookie, Content-Type, ticket, content-type, Range, X-Requested-With,
+        Accept, Content-Range
+      Access-Control-Allow-Methods:
+      - POST, GET, PUT, DELETE, OPTIONS
+      Expires:
+      - Tue, 03 Jul 2001 06:00:00 GMT
+      Cache-Control:
+      - no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0
+      Pragma:
+      - no-cache
+    body:
+      encoding: UTF-8
+      string: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><createPolicyResult
+        xmlns="http://vtsft.ru/travelExtService/"><returnCode><code>BAD_PARAMETER</code><errorMessage>List
+        of INSURED_FIRST_NAME contains null or empty values</errorMessage><errorMessageID>BP_033</errorMessageID></returnCode><tesVersion><environmentId>UATEnvironment</environmentId><buildVersion>20180226</buildVersion></tesVersion></createPolicyResult></soap:Body></soap:Envelope>
+    http_version: 
+  recorded_at: Wed, 14 Mar 2018 11:20:18 GMT
+recorded_with: VCR 2.9.3
