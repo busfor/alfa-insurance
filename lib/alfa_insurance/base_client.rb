@@ -1,5 +1,5 @@
 module AlfaInsurance
-  class BasePolicy
+  class BaseClient
     SANDBOX_WSDL = 'https://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService?wsdl'.freeze
 
     attr_accessor :log, :log_level, :operator, :product_code, :wsdl

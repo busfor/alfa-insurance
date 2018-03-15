@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe AlfaInsurance do
   before(:each) do
-    @client = AlfaInsurance::BusPolicy.new(operator: 'TestBusOperator', product_code: 'TEST-BUS', debug: true)
+    @client = AlfaInsurance::BusClient.new(operator: 'TestBusOperator', product_code: 'TEST-BUS', debug: true)
   end
 
   it '#calculate' do

@@ -1,5 +1,5 @@
 module AlfaInsurance
-  class BusPolicy < BasePolicy
+  class BusClient < BaseClient
     def calculate(total_cost)
       response = send_soap_request(:create_policy) do |xml|
         xml.operator { xml.code(operator) }

@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["alexander.sviridov@gmail.com"]
 
   spec.summary       = %q{Ruby wrapper for ALfaInsurance SOAP API}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/busfor/alfa-insurance/"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
