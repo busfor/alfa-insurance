@@ -16,6 +16,19 @@ module AlfaInsurance
       @product_code = product_code
     end
 
+    def get_available_products
+      send_soap_request(:get_available_products) do |xml|
+        xml.operator { xml.code(operator) }
+      end.body
+    end
+
+    def get_policy_parameters(product_code)
+      send_soap_request(:get_policy_parameters) do |xml|
+        xml.operator { xml.code(operator) }
+        xml.product { xml.code(product_code) }
+      end.body
+    end
+
     def calculate(*)
       raise NotImplementedError
     end
