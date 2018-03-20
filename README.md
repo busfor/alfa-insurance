@@ -44,7 +44,7 @@ Or install it yourself as:
 
 ### create
 
-Принимает на вход заполненную данными структуру BusInsuranceRequest, возвращает структуру CreateResponse, с полями аналогичными CalculateResponse.
+Принимает на вход заполненную данными структуру BusInsuranceRequest, возвращает структуру CreateResponse, с полями аналогичными CalculateResponse, плюс идентификатор страховки - insurance_id.
 
 ```ruby
     insurance_request = AlfaInsurance::BusInsuranceRequest.new(
