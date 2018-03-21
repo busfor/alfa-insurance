@@ -74,7 +74,7 @@ module AlfaInsurance
     end
 
     def soap_client
-      @client ||= Savon.client(wsdl: wsdl, log_level: log_level, log: log)
+      @client ||= Savon.client(wsdl: wsdl, log_level: log_level, log: log, pretty_print_xml: log)
     end
 
     def action_namespace(action)
