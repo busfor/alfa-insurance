@@ -1,11 +1,11 @@
 module AlfaInsurance
   class CalculateResponse < Response
     def cost
-      Money.new(body.dig(:calculation_result, :premium), currency)
+      Money.from_amount(body.dig(:calculation_result, :premium).to_f, currency)
     end
 
     def risk_value
-      Money.new(body.dig(:calculation_result, :risk_value_sum), currency)
+      Money.from_amount(body.dig(:calculation_result, :risk_value_sum).to_f, currency)
     end
 
     def risk_type

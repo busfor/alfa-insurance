@@ -5,11 +5,11 @@ module AlfaInsurance
     end
 
     def cost
-      Money.new(body.dig(:policy_information, :rate), currency)
+      Money.from_amount(body.dig(:policy_information, :rate).to_f, currency)
     end
 
     def risk_value
-      Money.new(body.dig(:policy_information, :risk_value, :@value), risk_currency)
+      Money.from_amount(body.dig(:policy_information, :risk_value, :@value).to_f, risk_currency)
     end
 
     def risk_type

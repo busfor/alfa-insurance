@@ -10,8 +10,9 @@ describe AlfaInsurance do
       response = @client.calculate(480)
       assert_equal AlfaInsurance::CalculateResponse, response.class
       assert_equal true, response.success?
-      assert_equal Money.new(20, 'RUB'), response.cost
-      assert_equal Money.new(100000, 'RUB'), response.risk_value
+      assert_equal 20.0, response.cost.to_f
+      assert_equal Money.from_amount(20, 'RUB'), response.cost
+      assert_equal Money.from_amount(100000, 'RUB'), response.risk_value
       assert_equal 'RISK_NS', response.risk_type
     end
   end
@@ -34,15 +35,15 @@ describe AlfaInsurance do
             departure_at: DateTime.parse('2018-03-24 12:00:00+03:00')
           )
         ],
-        total_value: Money.new(480, 'RUB'),
+        total_value: Money.from_amount(480, 'RUB'),
         customer_phone: '+79161234567',
         customer_email: 'text@example.com'
       )
       response = @client.create(insurance_request)
       assert_equal AlfaInsurance::CreateResponse, response.class
       assert_equal true, response.success?
-      assert_equal Money.new(20, 'RUB'), response.cost
-      assert_equal Money.new(100000, 'RUB'), response.risk_value
+      assert_equal Money.from_amount(20, 'RUB'), response.cost
+      assert_equal Money.from_amount(100000, 'RUB'), response.risk_value
       assert_equal 'RISK_NS', response.risk_type
       assert_equal 26613228, response.insurance_id
     end
@@ -53,8 +54,8 @@ describe AlfaInsurance do
       response = @client.find(26609882)
       assert_equal true, response.success?
       assert_equal AlfaInsurance::FindResponse, response.class
-      assert_equal Money.new(20, 'RUB'), response.cost
-      assert_equal Money.new(100000, 'RUB'), response.risk_value
+      assert_equal Money.from_amount(20, 'RUB'), response.cost
+      assert_equal Money.from_amount(100000, 'RUB'), response.risk_value
       assert_equal 'RISK_NS', response.risk_type
       assert_equal 26609882, response.insurance_id
       assert_equal 'ISSUING', response.state
