@@ -2,9 +2,9 @@ module AlfaInsurance
   class BaseClient
     SANDBOX_WSDL = 'https://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService?wsdl'.freeze
 
-    attr_accessor :log, :log_level, :operator, :product_code, :wsdl
+    attr_accessor :log, :log_level, :operator, :product_code, :wsdl, :timeout
 
-    def initialize(debug: false, wsdl: SANDBOX_WSDL, operator:, product_code:)
+    def initialize(debug: false, wsdl: SANDBOX_WSDL, operator:, product_code:, timeout: 5)
       if debug
         @log_level = :debug
         @log = true
@@ -14,6 +14,7 @@ module AlfaInsurance
       @wsdl = wsdl
       @operator = operator
       @product_code = product_code
+      @timeout = timeout
     end
 
     def get_available_products
@@ -74,7 +75,14 @@ module AlfaInsurance
     end
 
     def soap_client
-      @client ||= Savon.client(wsdl: wsdl, log_level: log_level, log: log, pretty_print_xml: log)
+      @client ||= Savon.client(
+        wsdl: wsdl,
+        log_level: log_level,
+        log: log,
+        pretty_print_xml: log,
+        open_timeout: timeout,
+        read_timeout: timeout
+      )
     end
 
     def action_namespace(action)
