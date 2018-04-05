@@ -33,7 +33,7 @@ module AlfaInsurance
       end
     end
 
-    def generate_xml(xml)
+    def generate_xml(xml, ticket_issue_date)
       xml.insuredFirstName(insured_first_name)
       xml.insuredLastName(insured_last_name)
       xml.insuredPatronymic(insured_patronymic)
@@ -73,6 +73,7 @@ module AlfaInsurance
       xml.busSegmentsCount(bus_segments.size)
       xml.ticketInformation {
           xml.ticketTotalValue(total_value.to_f)
+          xml.ticketIssueDate(ticket_issue_date.iso8601)
         }
       xml.customerPhoneType 'MOBILE'
       xml.customerPhone customer_phone
