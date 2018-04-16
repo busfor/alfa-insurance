@@ -22,6 +22,7 @@ module AlfaInsurance
                 :insured_birth_date,
                 :insured_document_type,
                 :insured_document_number,
+                :insured_ticket_number,
                 :bus_segments,
                 :total_value,
                 :customer_email,
@@ -38,6 +39,7 @@ module AlfaInsurance
       xml.insuredLastName(insured_last_name)
       xml.insuredPatronymic(insured_patronymic)
       xml.insuredBirthDate(insured_birth_date)
+      xml.insuredTicketNumber(insured_ticket_number)
       xml.insuredCount(1)
 #      xml.insuredDocumentType(insured_document_type)
 #      xml.insuredDocumentNumber(insured_document_number)

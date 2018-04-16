@@ -7,7 +7,7 @@ describe AlfaInsurance do
 
   it '#calculate' do
     VCR.use_cassette("calculate") do
-      response = @client.calculate(480)
+      response = @client.calculate(480, Date.new(2018, 4, 1))
       assert_equal AlfaInsurance::CalculateResponse, response.class
       assert_equal true, response.success?
       assert_equal 20.0, response.cost.to_f
@@ -39,7 +39,7 @@ describe AlfaInsurance do
         customer_phone: '+79161234567',
         customer_email: 'text@example.com'
       )
-      response = @client.create(insurance_request)
+      response = @client.create(insurance_request, Date.new(2018, 4, 1))
       assert_equal AlfaInsurance::CreateResponse, response.class
       assert_equal true, response.success?
       assert_equal Money.from_amount(20, 'RUB'), response.cost
@@ -101,7 +101,7 @@ describe AlfaInsurance do
 
     it 'in calculate' do
       VCR.use_cassette("calculate_error") do
-        response = @client.calculate(-100)
+        response = @client.calculate(-100, Date.new(2018, 4, 1))
         assert_equal false, response.success?
         assert_equal 'CALCULATION_ERROR', response.error_code
         assert_equal 'Error: Can`t calculate policy', response.error_description
@@ -111,7 +111,7 @@ describe AlfaInsurance do
     it 'in create' do
       VCR.use_cassette("create_error") do
     
-        response = @client.create(AlfaInsurance::BusInsuranceRequest.new(bus_segments: []))
+        response = @client.create(AlfaInsurance::BusInsuranceRequest.new(bus_segments: []), Date.new(2018, 4, 1))
         assert_equal false, response.success?
         assert_equal 'BAD_PARAMETER', response.error_code
         assert_equal 'List of INSURED_FIRST_NAME contains null or empty values', response.error_description
