@@ -13,6 +13,22 @@ module AlfaInsurance
         instance_variable_set("@#{attr}", value)
       end
     end
+
+    def departure_date
+      departure_at && departure_at.to_date.iso8601
+    end
+
+    def departure_time
+      departure_at && departure_at.strftime("%H:%M:%S")
+    end
+
+    def arrival_date
+      arrival_at && arrival_at.to_date.iso8601
+    end
+
+    def arrival_time
+      arrival_at && arrival_at.strftime("%H:%M:%S")
+    end
   end
 
   class BusInsuranceRequest
@@ -54,19 +70,19 @@ module AlfaInsurance
           xml.value(segment.departure_station)
         }
         xml.busSegmentDepartureDate(seqNo: index) {
-          xml.value(segment.departure_at.to_date.iso8601)
+          xml.value(segment.departure_date)
         }
         xml.busSegmentDepartureTime(seqNo: index) {
-          xml.value(segment.departure_at.strftime("%H:%M:%S"))
+          xml.value(segment.departure_time)
         }
         xml.busSegmentArrivalStation(seqNo: index) {
           xml.value(segment.arrival_station)
         }
         xml.busSegmentArrivalDate(seqNo: index) {
-          xml.value(segment.arrival_at.to_date.iso8601)
+          xml.value(segment.arrival_date)
         }
         xml.busSegmentArrivalTime(seqNo: index) {
-          xml.value(segment.arrival_at.strftime("%H:%M:%S"))
+          xml.value(segment.arrival_time)
         }
         xml.busSegmentNumber(seqNo: index) {
           xml.value(segment.number)
