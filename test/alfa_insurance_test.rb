@@ -2,7 +2,7 @@ require 'test_helper'
 
 describe AlfaInsurance do
   before(:each) do
-    @client = AlfaInsurance::BusClient.new(operator: 'TestBusOperator', product_code: 'TEST-BUS', debug: true)
+    @client = AlfaInsurance::BusClient.new(operator: 'TestBusOperator', product_code: 'TEST-BUS', debug: false)
   end
 
   it '#calculate' do
@@ -110,7 +110,7 @@ describe AlfaInsurance do
 
     it 'in create' do
       VCR.use_cassette("create_error") do
-    
+
         response = @client.create(AlfaInsurance::BusInsuranceRequest.new(bus_segments: []), Date.new(2018, 4, 1))
         assert_equal false, response.success?
         assert_equal 'BAD_PARAMETER', response.error_code
