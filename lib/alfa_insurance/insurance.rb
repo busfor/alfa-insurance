@@ -59,42 +59,48 @@ module AlfaInsurance
       xml.insuredCount(1)
       bus_segments.each_with_index do |segment, index|
         xml.busSegmentRouteNumber(seqNo: index) {
-          xml.value(segment.route_number)
+          xml.value(segment.route_number) if present?(segment.route_number)
         }
         xml.busSegmentPlaceNumber(seqNo: index) {
-          xml.value(segment.place_number)
+          xml.value(segment.place_number) if present?(segment.place_number)
         }
         xml.busSegmentDepartureStation(seqNo: index) {
-          xml.value(segment.departure_station)
+          xml.value(segment.departure_station) if present?(segment.departure_station)
         }
         xml.busSegmentDepartureDate(seqNo: index) {
-          xml.value(segment.departure_date)
+          xml.value(segment.departure_date) if present?(segment.departure_date)
         }
         xml.busSegmentDepartureTime(seqNo: index) {
-          xml.value(segment.departure_time)
+          xml.value(segment.departure_time) if present?(segment.departure_time)
         }
         xml.busSegmentArrivalStation(seqNo: index) {
-          xml.value(segment.arrival_station)
+          xml.value(segment.arrival_station) if present?(segment.arrival_station)
         }
         xml.busSegmentArrivalDate(seqNo: index) {
-          xml.value(segment.arrival_date)
+          xml.value(segment.arrival_date) if present?(segment.arrival_date)
         }
         xml.busSegmentArrivalTime(seqNo: index) {
-          xml.value(segment.arrival_time)
+          xml.value(segment.arrival_time) if present?(segment.arrival_time)
         }
         xml.busSegmentNumber(seqNo: index) {
-          xml.value(segment.number)
+          xml.value(segment.number) if present?(segment.number)
         }
       end
       xml.busSegmentsCount(bus_segments.size)
       xml.ticketInformation {
-          xml.ticketTotalValue(total_value.to_f)
-          xml.ticketIssueDate(ticket_issue_date.iso8601)
-        }
+        xml.ticketTotalValue(total_value.to_f)
+        xml.ticketIssueDate(ticket_issue_date.iso8601)
+      }
       xml.customerPhoneType 'MOBILE'
       xml.customerPhone customer_phone
       xml.customerEmail customer_email
       xml
+    end
+
+    private
+
+    def present?(value)
+      !value.nil? && value != ''
     end
   end
 end
