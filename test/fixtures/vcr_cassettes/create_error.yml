@@ -6,18 +6,26 @@ http_interactions:
     body:
       encoding: US-ASCII
       string: ''
-    headers: {}
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Server:
       - nginx/1.10.3 (Ubuntu)
       Date:
-      - Wed, 14 Mar 2018 11:20:19 GMT
+      - Wed, 13 Jun 2018 12:09:41 GMT
       Content-Type:
       - text/xml
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -30,7 +38,8 @@ http_interactions:
       Expires:
       - Tue, 03 Jul 2001 06:00:00 GMT
       Cache-Control:
-      - no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0
+      - no-store, no-cache, must-revalidate, max-age=0
+      - post-check=0, pre-check=0
       Pragma:
       - no-cache
     body:
@@ -655,7 +664,6 @@ http_interactions:
         <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredPhoneType" nillable="true" type="tns:tesPhoneTypeEnumSeqNo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredSex" nillable="true" type="tns:tesSexTypeEnumSeqNo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredAddress" nillable="true" type="tns:nonEmptyStringSeqNo"/>
-        <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredIdCard" nillable="true" type="tns:nonEmptyStringSeqNo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskValue" nillable="true" type="tns:riskValueSeqNo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskRate" nillable="true" type="tns:riskRateSeqNo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="insuredRiskRub" nillable="true" type="tns:riskRateSeqNo"/>
@@ -673,7 +681,6 @@ http_interactions:
         <xs:element minOccurs="0" name="insurerPhoneType" type="tns:tesPhoneTypeEnum"/>
         <xs:element minOccurs="0" name="insurerSex" type="tns:tesSexTypeEnum"/>
         <xs:element minOccurs="0" name="insurerAddress" type="xs:string"/>
-        <xs:element minOccurs="0" name="insurerIdCard" type="xs:string"/>
         <xs:element minOccurs="0" name="flightSegmentsCount" type="xs:short"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentTransportOperatorCode" nillable="true" type="tns:stringPolicyInfo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="flightSegmentFlightNumber" nillable="true" type="tns:stringPolicyInfo"/>
@@ -756,9 +763,7 @@ http_interactions:
         <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentArrivalDate" nillable="true" type="tns:datePolicyInfo"/>
         <xs:element maxOccurs="unbounded" minOccurs="0" name="busSegmentArrivalTime" nillable="true" type="tns:timePolicyInfo"/>
         <xs:element minOccurs="0" name="seatsCount" type="xs:short"/>
-        <xs:element minOccurs="0" name="loanSum" type="xs:decimal"/>
-        <xs:element minOccurs="0" name="monthlyPayment" type="xs:decimal"/>
-        <xs:element minOccurs="0" name="loanTerm" type="xs:int"/>
+        <xs:element minOccurs="0" name="stationNumber" type="xs:string"/>
         </xs:sequence>
         </xs:complexType>
         <xs:complexType name="nonEmptyStringSeqNo">
@@ -1329,7 +1334,6 @@ http_interactions:
         <xs:enumeration value="RISK_PROPERTY"/>
         <xs:enumeration value="RISK_EVENT"/>
         <xs:enumeration value="RISK_LOSS_RESTORE_DOCUMENTS"/>
-        <xs:enumeration value="RISK_LOSS_OF_WORK"/>
         </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tesCurrencyTypeEnum">
@@ -1715,7 +1719,6 @@ http_interactions:
         <xs:enumeration value="INSURED_PHONE_TYPE"/>
         <xs:enumeration value="INSURED_SEX"/>
         <xs:enumeration value="INSURED_ADDRESS"/>
-        <xs:enumeration value="INSURED_ID_CARD"/>
         <xs:enumeration value="INSURER_FIRST_NAME"/>
         <xs:enumeration value="INSURER_LAST_NAME"/>
         <xs:enumeration value="INSURER_PATRONYMIC"/>
@@ -1727,7 +1730,6 @@ http_interactions:
         <xs:enumeration value="INSURER_PHONE_TYPE"/>
         <xs:enumeration value="INSURER_SEX"/>
         <xs:enumeration value="INSURER_ADDRESS"/>
-        <xs:enumeration value="INSURER_ID_CARD"/>
         <xs:enumeration value="FLIGHT_SEGMENTS_COUNT"/>
         <xs:enumeration value="FLIGHT_SEGMENT_TRANSPORT_OPERATOR_CODE"/>
         <xs:enumeration value="FLIGHT_SEGMENT_FLIGHT_NUMBER"/>
@@ -1763,6 +1765,7 @@ http_interactions:
         <xs:enumeration value="EMERGENCY"/>
         <xs:enumeration value="LUGGAGE"/>
         <xs:enumeration value="SEATS_COUNT"/>
+        <xs:enumeration value="STATION_NUMBER"/>
         <xs:enumeration value="SPORT"/>
         <xs:enumeration value="COMPETITION"/>
         <xs:enumeration value="COUNTRY"/>
@@ -1813,9 +1816,6 @@ http_interactions:
         <xs:enumeration value="BUS_SEGMENT_ARRIVAL_STATION"/>
         <xs:enumeration value="BUS_SEGMENT_ARRIVAL_DATE"/>
         <xs:enumeration value="BUS_SEGMENT_ARRIVAL_TIME"/>
-        <xs:enumeration value="LOAN_SUM"/>
-        <xs:enumeration value="MONTHLY_PAYMENT"/>
-        <xs:enumeration value="LOAN_TERM"/>
         </xs:restriction>
         </xs:simpleType>
         <xs:simpleType name="tesProductParameterTypeEnum">
@@ -1838,7 +1838,6 @@ http_interactions:
         <xs:enumeration value="EVENT"/>
         <xs:enumeration value="BUS"/>
         <xs:enumeration value="TAXI"/>
-        <xs:enumeration value="LOAN"/>
         </xs:restriction>
         </xs:simpleType>
         <xs:element name="base64Binary" nillable="true" type="xs:base64Binary"/>
@@ -2403,38 +2402,46 @@ http_interactions:
           </wsdl:binding>
           <wsdl:service name="TravelExtServiceImplService">
             <wsdl:port binding="tns:TravelExtServiceImplServiceSoapBinding" name="TravelExtServiceImplPort">
-              <soap:address location="http://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService"/>
+              <soap:address location="https://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService"/>
             </wsdl:port>
           </wsdl:service>
         </wsdl:definitions>
     http_version: 
-  recorded_at: Wed, 14 Mar 2018 11:20:18 GMT
+  recorded_at: Wed, 13 Jun 2018 12:09:27 GMT
 - request:
     method: post
-    uri: http://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService
+    uri: https://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService
     body:
       encoding: UTF-8
       string: <?xml version="1.0" encoding="UTF-8"?><env:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tns="http://vtsft.ru/travelExtService/"
-        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:createPolicyRequest><tns:operator><tns:code>TestBusOperator</tns:code></tns:operator><tns:product><tns:code>TEST-BUS</tns:code></tns:product><tns:policyParameters><tns:insuredFirstName/><tns:insuredLastName/><tns:insuredPatronymic/><tns:insuredBirthDate/><tns:insuredCount>1</tns:insuredCount><tns:busSegmentsCount>0</tns:busSegmentsCount><tns:ticketInformation><tns:ticketTotalValue/></tns:ticketInformation><tns:customerPhoneType>MOBILE</tns:customerPhoneType><tns:customerPhone/><tns:customerEmail/></tns:policyParameters></tns:createPolicyRequest></env:Body></env:Envelope>
+        xmlns:env="http://schemas.xmlsoap.org/soap/envelope/"><env:Body><tns:createPolicyRequest><tns:operator><tns:code>TestBusOperator</tns:code></tns:operator><tns:product><tns:code>TEST-BUS</tns:code></tns:product><tns:policyParameters><tns:insuredFirstName></tns:insuredFirstName><tns:insuredLastName></tns:insuredLastName><tns:insuredPatronymic></tns:insuredPatronymic><tns:insuredBirthDate></tns:insuredBirthDate><tns:insuredTicketNumber></tns:insuredTicketNumber><tns:insuredCount>1</tns:insuredCount><tns:busSegmentsCount>0</tns:busSegmentsCount><tns:ticketInformation><tns:ticketTotalValue>0.0</tns:ticketTotalValue><tns:ticketIssueDate>2018-06-13</tns:ticketIssueDate></tns:ticketInformation><tns:customerPhoneType>MOBILE</tns:customerPhoneType><tns:customerPhone></tns:customerPhone><tns:customerEmail></tns:customerEmail></tns:policyParameters></tns:createPolicyRequest></env:Body></env:Envelope>
     headers:
       Soapaction:
       - '"http://vtsft.ru/travelExtService/createPolicy"'
       Content-Type:
       - text/xml;charset=UTF-8
       Content-Length:
-      - '843'
+      - '1098'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
   response:
     status:
       code: 200
-      message: ''
+      message: OK
     headers:
       Server:
       - nginx/1.10.3 (Ubuntu)
       Date:
-      - Wed, 14 Mar 2018 11:20:19 GMT
+      - Wed, 13 Jun 2018 12:09:45 GMT
       Content-Type:
       - text/xml;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
       Connection:
       - keep-alive
       Access-Control-Allow-Origin:
@@ -2447,14 +2454,15 @@ http_interactions:
       Expires:
       - Tue, 03 Jul 2001 06:00:00 GMT
       Cache-Control:
-      - no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0
+      - no-store, no-cache, must-revalidate, max-age=0
+      - post-check=0, pre-check=0
       Pragma:
       - no-cache
     body:
       encoding: UTF-8
       string: <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"><soap:Body><createPolicyResult
         xmlns="http://vtsft.ru/travelExtService/"><returnCode><code>BAD_PARAMETER</code><errorMessage>List
-        of INSURED_FIRST_NAME contains null or empty values</errorMessage><errorMessageID>BP_033</errorMessageID></returnCode><tesVersion><environmentId>UATEnvironment</environmentId><buildVersion>20180226</buildVersion></tesVersion></createPolicyResult></soap:Body></soap:Envelope>
+        of INSURED_FIRST_NAME contains null or empty values</errorMessage><errorMessageID>BP_033</errorMessageID></returnCode><tesVersion><environmentId>DEVenvironment</environmentId><buildVersion>20180613</buildVersion></tesVersion></createPolicyResult></soap:Body></soap:Envelope>
     http_version: 
-  recorded_at: Wed, 14 Mar 2018 11:20:18 GMT
-recorded_with: VCR 2.9.3
+  recorded_at: Wed, 13 Jun 2018 12:09:28 GMT
+recorded_with: VCR 4.0.0
