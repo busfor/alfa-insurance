@@ -57,8 +57,6 @@ module AlfaInsurance
       xml.insuredBirthDate(insured_birth_date)
       xml.insuredTicketNumber(insured_ticket_number)
       xml.insuredCount(1)
-#      xml.insuredDocumentType(insured_document_type)
-#      xml.insuredDocumentNumber(insured_document_number)
       bus_segments.each_with_index do |segment, index|
         xml.busSegmentRouteNumber(seqNo: index) {
           xml.value(segment.route_number)
