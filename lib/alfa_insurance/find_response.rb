@@ -13,7 +13,14 @@ module AlfaInsurance
     end
 
     def risk_type
-      body.dig(:policy_information, :risk_value, :@risk_type)
+      warn "[DEPRECATION] `risk_type` is deprecated.  Please use `risk_types` instead."
+      risk_types.first
+    end
+
+    def risk_types
+      risk_values = body.dig(:policy_information, :risk_value)
+      risk_values = [risk_values] unless risk_values.is_a?(Array)
+      risk_values.compact.map { |item| item[:@risk_type] }
     end
 
     def state
