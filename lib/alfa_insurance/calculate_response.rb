@@ -1,11 +1,11 @@
 module AlfaInsurance
   class CalculateResponse < Response
     def cost
-      Money.from_amount(body.dig(:calculation_result, :premium).to_f, currency)
+      @cost ||= to_money(result[:premium], currency)
     end
 
     def risk_value
-      Money.from_amount(body.dig(:calculation_result, :risk_value_sum).to_f, currency)
+      @risk_value ||= to_money(result[:risk_value_sum], currency)
     end
 
     def risk_type
@@ -14,15 +14,21 @@ module AlfaInsurance
     end
 
     def risk_types
-      risk_values = body.dig(:calculation_result, :risk_value)
-      risk_values = [risk_values] unless risk_values.is_a?(Array)
-      risk_values.compact.map { |item| item[:@risk_type] }
+      risk_values.keys
+    end
+
+    def risk_values
+      @risk_values ||= risk_values_from(result, currency: currency)
     end
 
   private
 
     def currency
-      @currency ||= body.dig(:calculation_result, :currency)
+      result[:currency]
+    end
+
+    def result
+      @result ||= body[:calculation_result] || {}
     end
   end
 end
