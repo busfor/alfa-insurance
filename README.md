@@ -29,12 +29,12 @@ Or install it yourself as:
     response.risk_value
 ```
 
-Все ответы сервера поддерживают метод success? и если он возвращает false, содержат код и описание ошибки в полях error_code и error_description. 
+Все ответы сервера поддерживают метод success? и если он возвращает false, содержат код и описание ошибки в полях error_code и error_description.
 
 Описание методов:
 ### calculate
 
-Принимает на вход стоимость билета (тип Money, или Float), возвращает структуру CalculateResponse с полями cost, risk_value (денежные) и строковым полем risk_type, где содержится код покрываемого риска. Расчет осуществляется без учета валюты - она настраивается на уровне выбора страхового продукта.
+Принимает на вход стоимость билета (тип Money, или Float), возвращает структуру CalculateResponse с полями cost, risk_value (денежные) и массивом строк risk_types, где содержатся коды покрываемых рисков. Расчет осуществляется без учета валюты - она настраивается на уровне выбора страхового продукта.
 
 ```ruby
     response = client.calculate(480)
@@ -94,7 +94,7 @@ Or install it yourself as:
 
 ### find
 
-Принимает на вход числовой идентификатор страховки, возвращает FindReponse с полями insurance_id, cost, risk_value, risk_type (см. выше) и state, где содержится текстовый статус страховки (например ISSUING, CONFIRMED, CANCELLED)
+Принимает на вход числовой идентификатор страховки, возвращает FindReponse с полями insurance_id, cost, risk_value, risk_types (см. выше) и state, где содержится текстовый статус страховки (например ISSUING, CONFIRMED, CANCELLED)
 
 ```ruby
     response = client.find(insurance_id)

@@ -1,6 +1,8 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'alfa_insurance'
 
+require 'pry'
+
 require 'minitest/autorun'
 require 'vcr'
 VCR.configure do |config|

@@ -24,7 +24,9 @@ describe AlfaInsurance do
       assert_equal true, response.success?
       assert_equal 20.0, response.cost.to_f
       assert_equal Money.from_amount(20, 'RUB'), response.cost
-      assert_equal Money.from_amount(100000, 'RUB'), response.risk_value
+      assert_equal Money.from_amount(100_000, 'RUB'), response.risk_value
+      assert_equal Money.from_amount(100_000, 'RUB'), response.risk_values['RISK_NS']
+      assert_equal ['RISK_NS'], response.risk_types
       assert_equal 'RISK_NS', response.risk_type
   end
 
@@ -59,7 +61,9 @@ describe AlfaInsurance do
     assert_equal AlfaInsurance::CreateResponse, response.class
     assert_equal true, response.success?
     assert_equal Money.from_amount(20, 'RUB'), response.cost
-    assert_equal Money.from_amount(100000, 'RUB'), response.risk_value
+    assert_equal Money.from_amount(100_000, 'RUB'), response.risk_value
+    assert_equal Money.from_amount(100_000, 'RUB'), response.risk_values['RISK_NS']
+    assert_equal ['RISK_NS'], response.risk_types
     assert_equal 'RISK_NS', response.risk_type
     assert_equal 26784313, response.insurance_id
   end
@@ -73,7 +77,9 @@ describe AlfaInsurance do
     assert_equal true, response.success?
     assert_equal AlfaInsurance::FindResponse, response.class
     assert_equal Money.from_amount(20, 'RUB'), response.cost
-    assert_equal Money.from_amount(100000, 'RUB'), response.risk_value
+    assert_equal Money.from_amount(100_000, 'RUB'), response.risk_value
+    assert_equal Money.from_amount(100_000, 'RUB'), response.risk_values['RISK_NS']
+    assert_equal ['RISK_NS'], response.risk_types
     assert_equal 'RISK_NS', response.risk_type
     assert_equal 26784313, response.insurance_id
     assert_equal 'ISSUING', response.state
