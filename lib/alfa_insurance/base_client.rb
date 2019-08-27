@@ -2,19 +2,21 @@ module AlfaInsurance
   class BaseClient
     SANDBOX_WSDL = 'https://uat-tes.alfastrah.ru/travel-ext-services/TravelExtService?wsdl'.freeze
 
-    attr_accessor :log, :log_level, :operator, :product_code, :wsdl, :timeout
+    attr_accessor :log, :log_level, :logger, :operator, :product_code, :wsdl, :timeout
 
-    def initialize(debug: false, wsdl: SANDBOX_WSDL, operator:, product_code:, timeout: 5)
+    def initialize(debug: false, wsdl: SANDBOX_WSDL, operator:, product_code:, timeout: 5, logger: nil)
       if debug
         @log_level = :debug
         @log = true
       else
         @log = false
       end
+
       @wsdl = wsdl
       @operator = operator
       @product_code = product_code
       @timeout = timeout
+      @logger = logger
     end
 
     def get_available_products
@@ -79,6 +81,7 @@ module AlfaInsurance
         wsdl: wsdl,
         log_level: log_level,
         log: log,
+        logger: logger,
         pretty_print_xml: log,
         open_timeout: timeout,
         read_timeout: timeout
