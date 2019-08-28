@@ -1,15 +1,15 @@
 module AlfaInsurance
   class FindResponse < CalculateResponse
     def insurance_id
-      policy[:policy_id].to_i
+      result[:policy_id].to_i
     end
 
     def state
-      policy[:policy_status]
+      result[:policy_status]
     end
 
     def cost
-      @cost ||= to_money(policy[:rate], policy[:currency])
+      @cost ||= to_money(result[:rate], result[:currency])
     end
 
     def risk_type
@@ -17,26 +17,14 @@ module AlfaInsurance
       risk_types.first
     end
 
-    def risk_types
-      risk_values.keys
-    end
-
     def risk_value
       @risk_value ||= risk_values.values.inject(&:+)
     end
 
-    def risk_values
-      @risk_values ||= risk_values_from(policy, currency: risk_currency)
-    end
+    private
 
-  private
-
-    def risk_currency
-      policy.dig(:risk_currency, :@value)
-    end
-
-    def policy
-      @policy ||= body[:policy_information] || {}
+    def result
+      @result ||= body[:policy_information] || {}
     end
   end
 end
