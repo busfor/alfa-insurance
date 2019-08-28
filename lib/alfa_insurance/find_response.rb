@@ -26,12 +26,13 @@ module AlfaInsurance
     end
 
     def risk_values
-      @risk_values ||= covered_risks_from_raw(policy)
+      @risk_values ||= risks_from_raw(policy)
     end
 
     private
 
-    def covered_risks_from_raw(data)
+    def risks_from_raw(data)
+      risk_types = [data[:risk_list]].flatten
       raw_values = [data[:risk_value]].flatten
       raw_currencies = [data[:risk_currency]].flatten
 
