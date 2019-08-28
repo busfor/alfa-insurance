@@ -28,13 +28,17 @@ module AlfaInsurance
     private
 
     def risk_values_from(data)
-      raw_values = [data[:risk_value]].flatten
-      raw_currencies = [data[:risk_currency]].flatten
+      raw_values = [data[:risk_value]].flatten.compact
+      raw_currencies = [data[:risk_currency]].flatten.compact
 
       risk_types.each_with_object({}) do |risk_type, result|
-        value = raw_values.find { |raw| raw[:@risk_type] == risk_type }.fetch(:@value)
-        currency = raw_currencies.find { |raw| raw[:@risk_type] == risk_type }.fetch(:@value)
-        result[risk_type] = to_money(value, currency)
+        raw_value = raw_values.find { |raw| raw[:@risk_type] == risk_type }
+        risk_value = raw_value.fetch(:@value)
+
+        raw_currency = raw_currencies.find { |raw| raw[:@risk_type] == risk_type }
+        risk_currency = raw_currency ? raw_currency.fetch(:@value) : currency
+
+        result[risk_type] = to_money(risk_value, risk_currency)
       end
     end
 
