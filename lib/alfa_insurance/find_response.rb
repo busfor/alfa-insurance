@@ -18,7 +18,7 @@ module AlfaInsurance
     end
 
     def risk_types
-      risk_values.keys
+      [policy[:risk_list]].flatten
     end
 
     def risk_value
@@ -26,13 +26,20 @@ module AlfaInsurance
     end
 
     def risk_values
-      @risk_values ||= risk_values_from(policy, currency: risk_currency)
+      @risk_values ||= covered_risks_from_raw(policy)
     end
 
-  private
+    private
 
-    def risk_currency
-      policy.dig(:risk_currency, :@value)
+    def covered_risks_from_raw(data)
+      raw_values = [data[:risk_value]].flatten
+      raw_currencies = [data[:risk_currency]].flatten
+
+      risk_types.each_with_object({}) do |risk_type, result|
+        risk_value = raw_values.find { |raw| raw[:@risk_type] == risk_type }.fetch(:@value)
+        risk_currency = raw_currencies.find { |raw| raw[:@risk_type] == risk_type }.fetch(:@value)
+        result[risk_type] = to_money(risk_value, risk_currency)
+      end
     end
 
     def policy
