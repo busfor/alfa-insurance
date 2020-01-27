@@ -26,14 +26,10 @@ module AlfaInsurance
     end
 
     def risk_values
-      @risk_values ||= risk_values_from(policy, currency: risk_currency)
+      @risk_values ||= risk_values_from(policy)
     end
 
   private
-
-    def risk_currency
-      policy.dig(:risk_currency, :@value)
-    end
 
     def policy
       @policy ||= body[:policy_information] || {}
