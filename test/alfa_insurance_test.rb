@@ -85,6 +85,28 @@ describe AlfaInsurance do
     assert_equal 'ISSUING', response.state
   end
 
+  it '#find when multiple risc currencies' do
+    # used prod config to reproduce a bug and write this case to vcr cassette
+    client = AlfaInsurance::BusClient.new(
+      operator: 'BUSFOR',
+      product_code: 'ON_BUS_BUSFOR_OR',
+      wsdl: "https://vesta.alfastrah.ru/travel-ext-services/TravelExtService?wsdl",
+      debug: false,
+    )
+
+    response =
+      use_vcr_cassette('find_with_multiple_risc_currencies') do
+        client.find(46596394)
+      end
+
+    assert_equal true, response.success?
+    assert_equal Money.from_amount(252500, 'RUB'), response.risk_value
+    assert_equal ["RISK_NSP", "RISK_NS", "RISK_FLIGHT_DELAYS_PERSONAL"], response.risk_types
+    assert_equal 'RISK_NSP', response.risk_type
+    assert_equal 46596394, response.insurance_id
+    assert_equal 'CONFIRMED', response.state
+  end
+
   it '#confirm' do
     response =
       use_vcr_cassette('confirm') do
